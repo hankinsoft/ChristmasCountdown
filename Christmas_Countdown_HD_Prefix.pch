@@ -1,0 +1,22 @@
+//
+// Prefix header for all source files of the 'Christmas Countdown HD' target in the 'Christmas Countdown HD' project
+//
+#import <Availability.h>
+
+#ifndef __IPHONE_3_2
+#warning "This project uses features only available in iPhone SDK 3.2 and later."
+#endif
+
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+
+// Define to make sure debug statements do not make it into the release build
+#ifdef DEBUG
+  #define DLog(fmt, ...) NSLog(fmt, ##__VA_ARGS__);
+#else
+  #define DLog(...) // Nothing
+#endif
+
+#endif

@@ -1,0 +1,989 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* ChristmasCountdownAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* ChristmasCountdownAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		2804200B108E984D000629CD /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28042008108E984D000629CD /* SettingsViewController.m */; };
+		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		72338976175D2379008514CB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72338975175D2379008514CB /* AudioToolbox.framework */; };
+		72338978175D237E008514CB /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72338977175D237E008514CB /* CoreAudio.framework */; };
+		7245CD0D141F876F0019A9DB /* UIScrollViewTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 7245CD0C141F876F0019A9DB /* UIScrollViewTouch.m */; };
+		724711C8146A0EAF00B39A34 /* PageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 724711C7146A0EAF00B39A34 /* PageControl.m */; };
+		72471BB6163482430060E178 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72471BB41634822F0060E178 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		72471BB7163482430060E178 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72471BB21634822B0060E178 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		72471BB8163482430060E178 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72471BB0163482260060E178 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		72471BB9163482430060E178 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727F7285163337A600E92024 /* Twitter.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		72471BBB1634825A0060E178 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7245CF08141FC5CA0019A9DB /* MessageUI.framework */; };
+		72471BBC1634825A0060E178 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7245CF06141FC5AD0019A9DB /* SystemConfiguration.framework */; };
+		72471BBD1634825A0060E178 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7245CF04141FC5880019A9DB /* Security.framework */; };
+		72471BC81634AD270060E178 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72471BC71634AD270060E178 /* libsqlite3.0.dylib */; };
+		724A48591646917D002D2BE8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724A48581646917D002D2BE8 /* CoreData.framework */; };
+		725354B41474683D00128B47 /* CustomImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 725354B21474683D00128B47 /* CustomImageViewController.m */; };
+		725354B51474683D00128B47 /* CustomImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 725354B31474683D00128B47 /* CustomImageViewController.xib */; };
+		7293A1D8140A7D7B009BCA82 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7293A1D7140A7D7B009BCA82 /* MainWindow.xib */; };
+		7293A1E0140A8CCE009BCA82 /* ChristmasCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7293A1DE140A8CCE009BCA82 /* ChristmasCounterViewController.m */; };
+		7293A1E1140A8CCE009BCA82 /* ChristmasCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7293A1DF140A8CCE009BCA82 /* ChristmasCounterViewController.xib */; };
+		7293A1E5140A92A9009BCA82 /* ChristmasImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7293A1E3140A92A9009BCA82 /* ChristmasImageViewController.m */; };
+		7293A1E6140A92A9009BCA82 /* ChristmasImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7293A1E4140A92A9009BCA82 /* ChristmasImageViewController.xib */; };
+		7293A1E8140AA63F009BCA82 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7293A1E7140AA63F009BCA82 /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		7293A1F2140AA6A6009BCA82 /* Avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7293A1EE140AA6A6009BCA82 /* Avatar.png */; };
+		7293A1F4140AA73C009BCA82 /* AppIcon-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 7293A1F3140AA73C009BCA82 /* AppIcon-iPhone.png */; };
+		72975872183EE2D70088CE63 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72975871183EE2D70088CE63 /* StoreKit.framework */; };
+		72A6A3991619CA4900A98667 /* Elf-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A3851619CA4900A98667 /* Elf-568h@2x.png */; };
+		72A6A39A1619CA4900A98667 /* Elf-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A3861619CA4900A98667 /* Elf-iPad.png */; };
+		72A6A39B1619CA4900A98667 /* Elf-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A3871619CA4900A98667 /* Elf-iPad@2x.png */; };
+		72A6A39C1619CA4900A98667 /* Elf.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A3881619CA4900A98667 /* Elf.png */; };
+		72A6A39D1619CA4900A98667 /* Elf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A3891619CA4900A98667 /* Elf@2x.png */; };
+		72A6A39E1619CA4900A98667 /* Reindeer-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A38A1619CA4900A98667 /* Reindeer-568h@2x.png */; };
+		72A6A39F1619CA4900A98667 /* Reindeer-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A38B1619CA4900A98667 /* Reindeer-iPad.png */; };
+		72A6A3A01619CA4900A98667 /* Reindeer-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A38C1619CA4900A98667 /* Reindeer-iPad@2x.png */; };
+		72A6A3A11619CA4900A98667 /* Reindeer.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A38D1619CA4900A98667 /* Reindeer.png */; };
+		72A6A3A21619CA4900A98667 /* Reindeer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A38E1619CA4900A98667 /* Reindeer@2x.png */; };
+		72A6A3A31619CA4900A98667 /* Santa-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A38F1619CA4900A98667 /* Santa-568h@2x.png */; };
+		72A6A3A41619CA4900A98667 /* Santa-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A3901619CA4900A98667 /* Santa-iPad.png */; };
+		72A6A3A51619CA4900A98667 /* Santa-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A3911619CA4900A98667 /* Santa-iPad@2x.png */; };
+		72A6A3A61619CA4900A98667 /* Santa.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A3921619CA4900A98667 /* Santa.png */; };
+		72A6A3A71619CA4900A98667 /* Santa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A3931619CA4900A98667 /* Santa@2x.png */; };
+		72A6A3A81619CA4900A98667 /* Snowman-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A3941619CA4900A98667 /* Snowman-568h@2x.png */; };
+		72A6A3A91619CA4900A98667 /* Snowman-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A3951619CA4900A98667 /* Snowman-iPad.png */; };
+		72A6A3AA1619CA4900A98667 /* Snowman-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A3961619CA4900A98667 /* Snowman-iPad@2x.png */; };
+		72A6A3AB1619CA4900A98667 /* Snowman.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A3971619CA4900A98667 /* Snowman.png */; };
+		72A6A3AC1619CA4900A98667 /* Snowman@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A3981619CA4900A98667 /* Snowman@2x.png */; };
+		72A6A3B21619D5B000A98667 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A3B11619D5B000A98667 /* Default-568h@2x.png */; };
+		72A6A3B6161A312000A98667 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A3B5161A312000A98667 /* Icon@2x.png */; };
+		72A6A3B8161A317300A98667 /* Icon-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A3B7161A317300A98667 /* Icon-iPad@2x.png */; };
+		72ABB5F41475B66A00530D15 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72ABB5F31475B66A00530D15 /* MainWindow-iPad.xib */; };
+		72ACA53B193DE88F006B3B98 /* CountdownHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 72ACA53A193DE88F006B3B98 /* CountdownHelper.m */; };
+		72BF666019DB47DC0085022B /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72ACA526193DE6CB006B3B98 /* NotificationCenter.framework */; };
+		72BF666619DB47DC0085022B /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BF666519DB47DC0085022B /* TodayViewController.m */; };
+		72BF666819DB47DC0085022B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72BF666719DB47DC0085022B /* MainInterface.storyboard */; };
+		72BF666B19DB47DC0085022B /* CountdownExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 72BF665F19DB47DC0085022B /* CountdownExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		72BF667119DB480E0085022B /* CountdownHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 72ACA53A193DE88F006B3B98 /* CountdownHelper.m */; };
+		72C499E419DB342600E6EDBF /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C499E219DB342600E6EDBF /* EventKit.framework */; };
+		72C499E519DB342600E6EDBF /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C499E319DB342600E6EDBF /* EventKitUI.framework */; };
+		72C499E719DB344E00E6EDBF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C499E619DB344E00E6EDBF /* libz.dylib */; };
+		72C499E919DB346C00E6EDBF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C499E819DB346C00E6EDBF /* CoreTelephony.framework */; };
+		72D42EC519DC2940009852BD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72D42EC419DC2940009852BD /* Images.xcassets */; };
+		72D475B311E29D3500BAA691 /* AppIcon-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 72D475B211E29D3500BAA691 /* AppIcon-iPad.png */; };
+		72DE6FE6145614E90008D053 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72DE6FE5145614E90008D053 /* SettingsViewController.xib */; };
+		72E8C08C16389F210040321F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E8C08B16389F210040321F /* CFNetwork.framework */; };
+		72FAFB2C11E27ACC0043D496 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FAFB2B11E27ACC0043D496 /* AVFoundation.framework */; };
+		72FAFB2E11E27ACC0043D496 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FAFB2D11E27ACC0043D496 /* MediaPlayer.framework */; };
+		72FAFB3511E27B570043D496 /* AudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FAFB3411E27B570043D496 /* AudioController.m */; };
+		72FAFB4911E27D480043D496 /* CountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FAFB4611E27D480043D496 /* CountdownView.m */; };
+		72FAFB4A11E27D480043D496 /* Snowflake.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FAFB4811E27D480043D496 /* Snowflake.m */; };
+		72FAFB9011E280E40043D496 /* Jingle Bells.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 72FAFB8C11E280E40043D496 /* Jingle Bells.mp3 */; };
+		72FAFC1F11E2865F0043D496 /* UITableViewPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FAFC1C11E2865F0043D496 /* UITableViewPickerCell.m */; };
+		72FAFC2011E2865F0043D496 /* UITableViewSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FAFC1E11E2865F0043D496 /* UITableViewSliderCell.m */; };
+		72FAFC5B11E28ABF0043D496 /* ColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FAFC5611E28ABF0043D496 /* ColorPickerViewController.m */; };
+		72FAFC5C11E28ABF0043D496 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72FAFC5711E28ABF0043D496 /* ColorPickerViewController.xib */; };
+		72FAFC5D11E28ABF0043D496 /* MusicPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FAFC5911E28ABF0043D496 /* MusicPickerViewController.m */; };
+		72FAFC5E11E28ABF0043D496 /* MusicPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72FAFC5A11E28ABF0043D496 /* MusicPickerViewController.xib */; };
+		7B005C4685D6229B8E347FED /* libPods-Christmas Countdown HD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8050B44566C3F14B718399C /* libPods-Christmas Countdown HD.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		72BF666919DB47DC0085022B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 72BF665E19DB47DC0085022B;
+			remoteInfo = CountdownExtension;
+		};
+		72BF666C19DB47DC0085022B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 72BF665E19DB47DC0085022B;
+			remoteInfo = CountdownExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		72ACA538193DE6CB006B3B98 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				72BF666B19DB47DC0085022B /* CountdownExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* ChristmasCountdownAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChristmasCountdownAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* ChristmasCountdownAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChristmasCountdownAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* Christmas Countdown HD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Christmas Countdown HD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		28042007108E984D000629CD /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		28042008108E984D000629CD /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28A0AAE50D9B0CCF005BE974 /* ChristmasCountdownPrefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChristmasCountdownPrefix.pch; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2BA8CF36477FB215E7BC9165 /* Pods-Christmas Countdown HD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Christmas Countdown HD.release.xcconfig"; path = "Target Support Files/Pods-Christmas Countdown HD/Pods-Christmas Countdown HD.release.xcconfig"; sourceTree = "<group>"; };
+		5A0AB659AFE9DF1FB3BC54F5 /* Pods-Christmas Countdown HD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Christmas Countdown HD.debug.xcconfig"; path = "Target Support Files/Pods-Christmas Countdown HD/Pods-Christmas Countdown HD.debug.xcconfig"; sourceTree = "<group>"; };
+		72069E13143BE7AB007ECA91 /* Christmas Countdown HD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Christmas Countdown HD.entitlements"; sourceTree = "<group>"; };
+		72338975175D2379008514CB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		72338977175D237E008514CB /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		7245CD0B141F876F0019A9DB /* UIScrollViewTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewTouch.h; sourceTree = "<group>"; };
+		7245CD0C141F876F0019A9DB /* UIScrollViewTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScrollViewTouch.m; sourceTree = "<group>"; };
+		7245CF04141FC5880019A9DB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7245CF06141FC5AD0019A9DB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7245CF08141FC5CA0019A9DB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		724711C6146A0EAF00B39A34 /* PageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageControl.h; sourceTree = "<group>"; };
+		724711C7146A0EAF00B39A34 /* PageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageControl.m; sourceTree = "<group>"; };
+		72471BB0163482260060E178 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		72471BB21634822B0060E178 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		72471BB41634822F0060E178 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		72471BC71634AD270060E178 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		724A48581646917D002D2BE8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		725354B11474683D00128B47 /* CustomImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomImageViewController.h; sourceTree = "<group>"; };
+		725354B21474683D00128B47 /* CustomImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomImageViewController.m; sourceTree = "<group>"; };
+		725354B31474683D00128B47 /* CustomImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomImageViewController.xib; sourceTree = "<group>"; };
+		727F7285163337A600E92024 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		7293A1D7140A7D7B009BCA82 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		7293A1DD140A8CCE009BCA82 /* ChristmasCounterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChristmasCounterViewController.h; sourceTree = "<group>"; };
+		7293A1DE140A8CCE009BCA82 /* ChristmasCounterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChristmasCounterViewController.m; sourceTree = "<group>"; };
+		7293A1DF140A8CCE009BCA82 /* ChristmasCounterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChristmasCounterViewController.xib; sourceTree = "<group>"; };
+		7293A1E2140A92A9009BCA82 /* ChristmasImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChristmasImageViewController.h; sourceTree = "<group>"; };
+		7293A1E3140A92A9009BCA82 /* ChristmasImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChristmasImageViewController.m; sourceTree = "<group>"; };
+		7293A1E4140A92A9009BCA82 /* ChristmasImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChristmasImageViewController.xib; sourceTree = "<group>"; };
+		7293A1E7140AA63F009BCA82 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		7293A1EE140AA6A6009BCA82 /* Avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Avatar.png; sourceTree = "<group>"; };
+		7293A1F3140AA73C009BCA82 /* AppIcon-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-iPhone.png"; sourceTree = "<group>"; };
+		72975871183EE2D70088CE63 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		72A6A3851619CA4900A98667 /* Elf-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Elf-568h@2x.png"; sourceTree = "<group>"; };
+		72A6A3861619CA4900A98667 /* Elf-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Elf-iPad.png"; sourceTree = "<group>"; };
+		72A6A3871619CA4900A98667 /* Elf-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Elf-iPad@2x.png"; sourceTree = "<group>"; };
+		72A6A3881619CA4900A98667 /* Elf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Elf.png; sourceTree = "<group>"; };
+		72A6A3891619CA4900A98667 /* Elf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Elf@2x.png"; sourceTree = "<group>"; };
+		72A6A38A1619CA4900A98667 /* Reindeer-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reindeer-568h@2x.png"; sourceTree = "<group>"; };
+		72A6A38B1619CA4900A98667 /* Reindeer-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reindeer-iPad.png"; sourceTree = "<group>"; };
+		72A6A38C1619CA4900A98667 /* Reindeer-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reindeer-iPad@2x.png"; sourceTree = "<group>"; };
+		72A6A38D1619CA4900A98667 /* Reindeer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Reindeer.png; sourceTree = "<group>"; };
+		72A6A38E1619CA4900A98667 /* Reindeer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reindeer@2x.png"; sourceTree = "<group>"; };
+		72A6A38F1619CA4900A98667 /* Santa-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Santa-568h@2x.png"; sourceTree = "<group>"; };
+		72A6A3901619CA4900A98667 /* Santa-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Santa-iPad.png"; sourceTree = "<group>"; };
+		72A6A3911619CA4900A98667 /* Santa-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Santa-iPad@2x.png"; sourceTree = "<group>"; };
+		72A6A3921619CA4900A98667 /* Santa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Santa.png; sourceTree = "<group>"; };
+		72A6A3931619CA4900A98667 /* Santa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Santa@2x.png"; sourceTree = "<group>"; };
+		72A6A3941619CA4900A98667 /* Snowman-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Snowman-568h@2x.png"; sourceTree = "<group>"; };
+		72A6A3951619CA4900A98667 /* Snowman-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Snowman-iPad.png"; sourceTree = "<group>"; };
+		72A6A3961619CA4900A98667 /* Snowman-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Snowman-iPad@2x.png"; sourceTree = "<group>"; };
+		72A6A3971619CA4900A98667 /* Snowman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Snowman.png; sourceTree = "<group>"; };
+		72A6A3981619CA4900A98667 /* Snowman@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Snowman@2x.png"; sourceTree = "<group>"; };
+		72A6A3B11619D5B000A98667 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		72A6A3B5161A312000A98667 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		72A6A3B7161A317300A98667 /* Icon-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-iPad@2x.png"; sourceTree = "<group>"; };
+		72AB7E5A1A1CD4EE000D500D /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = System/Library/Frameworks/WatchKit.framework; sourceTree = SDKROOT; };
+		72ABB5F31475B66A00530D15 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		72ACA526193DE6CB006B3B98 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		72ACA539193DE88F006B3B98 /* CountdownHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownHelper.h; sourceTree = "<group>"; };
+		72ACA53A193DE88F006B3B98 /* CountdownHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownHelper.m; sourceTree = "<group>"; };
+		72BF661819DB39D20085022B /* Christmas_Countdown_HD_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Christmas_Countdown_HD_Prefix.pch; sourceTree = "<group>"; };
+		72BF665F19DB47DC0085022B /* CountdownExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CountdownExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		72BF666319DB47DC0085022B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72BF666419DB47DC0085022B /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		72BF666519DB47DC0085022B /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		72BF666719DB47DC0085022B /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		72C499E219DB342600E6EDBF /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		72C499E319DB342600E6EDBF /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		72C499E619DB344E00E6EDBF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		72C499E819DB346C00E6EDBF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		72D42EC419DC2940009852BD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		72D475B211E29D3500BAA691 /* AppIcon-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-iPad.png"; sourceTree = "<group>"; };
+		72DE6FE5145614E90008D053 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		72E8C08B16389F210040321F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		72FAFB2B11E27ACC0043D496 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		72FAFB2D11E27ACC0043D496 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		72FAFB3311E27B570043D496 /* AudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioController.h; sourceTree = "<group>"; };
+		72FAFB3411E27B570043D496 /* AudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioController.m; sourceTree = "<group>"; };
+		72FAFB4511E27D480043D496 /* CountdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownView.h; sourceTree = "<group>"; };
+		72FAFB4611E27D480043D496 /* CountdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownView.m; sourceTree = "<group>"; };
+		72FAFB4711E27D480043D496 /* Snowflake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snowflake.h; sourceTree = "<group>"; };
+		72FAFB4811E27D480043D496 /* Snowflake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Snowflake.m; sourceTree = "<group>"; };
+		72FAFB8C11E280E40043D496 /* Jingle Bells.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Jingle Bells.mp3"; sourceTree = "<group>"; };
+		72FAFC1B11E2865F0043D496 /* UITableViewPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewPickerCell.h; sourceTree = "<group>"; };
+		72FAFC1C11E2865F0043D496 /* UITableViewPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewPickerCell.m; sourceTree = "<group>"; };
+		72FAFC1D11E2865F0043D496 /* UITableViewSliderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewSliderCell.h; sourceTree = "<group>"; };
+		72FAFC1E11E2865F0043D496 /* UITableViewSliderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewSliderCell.m; sourceTree = "<group>"; };
+		72FAFC5511E28ABF0043D496 /* ColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerViewController.h; sourceTree = "<group>"; };
+		72FAFC5611E28ABF0043D496 /* ColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerViewController.m; sourceTree = "<group>"; };
+		72FAFC5711E28ABF0043D496 /* ColorPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
+		72FAFC5811E28ABF0043D496 /* MusicPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicPickerViewController.h; sourceTree = "<group>"; };
+		72FAFC5911E28ABF0043D496 /* MusicPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicPickerViewController.m; sourceTree = "<group>"; };
+		72FAFC5A11E28ABF0043D496 /* MusicPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicPickerViewController.xib; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Christmas_Countdown_HD-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Christmas_Countdown_HD-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		A8050B44566C3F14B718399C /* libPods-Christmas Countdown HD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Christmas Countdown HD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72C499E919DB346C00E6EDBF /* CoreTelephony.framework in Frameworks */,
+				72C499E719DB344E00E6EDBF /* libz.dylib in Frameworks */,
+				72C499E419DB342600E6EDBF /* EventKit.framework in Frameworks */,
+				72C499E519DB342600E6EDBF /* EventKitUI.framework in Frameworks */,
+				72975872183EE2D70088CE63 /* StoreKit.framework in Frameworks */,
+				72338978175D237E008514CB /* CoreAudio.framework in Frameworks */,
+				72338976175D2379008514CB /* AudioToolbox.framework in Frameworks */,
+				72471BBC1634825A0060E178 /* SystemConfiguration.framework in Frameworks */,
+				724A48591646917D002D2BE8 /* CoreData.framework in Frameworks */,
+				72E8C08C16389F210040321F /* CFNetwork.framework in Frameworks */,
+				72471BC81634AD270060E178 /* libsqlite3.0.dylib in Frameworks */,
+				72FAFB2C11E27ACC0043D496 /* AVFoundation.framework in Frameworks */,
+				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
+				72471BB6163482430060E178 /* Social.framework in Frameworks */,
+				72471BB7163482430060E178 /* AdSupport.framework in Frameworks */,
+				72471BB8163482430060E178 /* Accounts.framework in Frameworks */,
+				72471BB9163482430060E178 /* Twitter.framework in Frameworks */,
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				7293A1E8140AA63F009BCA82 /* iAd.framework in Frameworks */,
+				72FAFB2E11E27ACC0043D496 /* MediaPlayer.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				72471BBB1634825A0060E178 /* MessageUI.framework in Frameworks */,
+				72471BBD1634825A0060E178 /* Security.framework in Frameworks */,
+				7B005C4685D6229B8E347FED /* libPods-Christmas Countdown HD.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72BF665C19DB47DC0085022B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72BF666019DB47DC0085022B /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				72D42EC819DC3739009852BD /* Business */,
+				72D42EC619DC3702009852BD /* UI */,
+				1D3623240D0F684500981E51 /* ChristmasCountdownAppDelegate.h */,
+				1D3623250D0F684500981E51 /* ChristmasCountdownAppDelegate.m */,
+				72ABB5F31475B66A00530D15 /* MainWindow-iPad.xib */,
+				7293A1D7140A7D7B009BCA82 /* MainWindow.xib */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* Christmas Countdown HD.app */,
+				72BF665F19DB47DC0085022B /* CountdownExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				72BF666119DB47DC0085022B /* CountdownExtension */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				B45FADD0B5A5BF4DF86EDD07 /* Pods */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				72069E13143BE7AB007ECA91 /* Christmas Countdown HD.entitlements */,
+				72BF661819DB39D20085022B /* Christmas_Countdown_HD_Prefix.pch */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				28A0AAE50D9B0CCF005BE974 /* ChristmasCountdownPrefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			path = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				72D475B111E29D3500BAA691 /* Images */,
+				72FAFB8911E280E40043D496 /* Music */,
+				8D1107310486CEB800E47090 /* Christmas_Countdown_HD-Info.plist */,
+				72A6A3B7161A317300A98667 /* Icon-iPad@2x.png */,
+				72A6A3B5161A312000A98667 /* Icon@2x.png */,
+				72D42EC419DC2940009852BD /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72C499E819DB346C00E6EDBF /* CoreTelephony.framework */,
+				72C499E619DB344E00E6EDBF /* libz.dylib */,
+				72C499E219DB342600E6EDBF /* EventKit.framework */,
+				72C499E319DB342600E6EDBF /* EventKitUI.framework */,
+				72471BC71634AD270060E178 /* libsqlite3.0.dylib */,
+				72338977175D237E008514CB /* CoreAudio.framework */,
+				72338975175D2379008514CB /* AudioToolbox.framework */,
+				724A48581646917D002D2BE8 /* CoreData.framework */,
+				72E8C08B16389F210040321F /* CFNetwork.framework */,
+				72975871183EE2D70088CE63 /* StoreKit.framework */,
+				7245CF08141FC5CA0019A9DB /* MessageUI.framework */,
+				7245CF06141FC5AD0019A9DB /* SystemConfiguration.framework */,
+				7245CF04141FC5880019A9DB /* Security.framework */,
+				72471BB41634822F0060E178 /* Social.framework */,
+				72471BB21634822B0060E178 /* AdSupport.framework */,
+				72471BB0163482260060E178 /* Accounts.framework */,
+				727F7285163337A600E92024 /* Twitter.framework */,
+				7293A1E7140AA63F009BCA82 /* iAd.framework */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
+				72FAFB2B11E27ACC0043D496 /* AVFoundation.framework */,
+				72FAFB2D11E27ACC0043D496 /* MediaPlayer.framework */,
+				72ACA526193DE6CB006B3B98 /* NotificationCenter.framework */,
+				72AB7E5A1A1CD4EE000D500D /* WatchKit.framework */,
+				A8050B44566C3F14B718399C /* libPods-Christmas Countdown HD.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		72BF666119DB47DC0085022B /* CountdownExtension */ = {
+			isa = PBXGroup;
+			children = (
+				72BF666219DB47DC0085022B /* Supporting Files */,
+				72BF666719DB47DC0085022B /* MainInterface.storyboard */,
+				72BF666419DB47DC0085022B /* TodayViewController.h */,
+				72BF666519DB47DC0085022B /* TodayViewController.m */,
+			);
+			path = CountdownExtension;
+			sourceTree = "<group>";
+		};
+		72BF666219DB47DC0085022B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				72BF666319DB47DC0085022B /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		72D42EC619DC3702009852BD /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				72FAFC1A11E2863B0043D496 /* UITableViewCell */,
+				72D42EC719DC3711009852BD /* ViewControllers */,
+				724711C6146A0EAF00B39A34 /* PageControl.h */,
+				724711C7146A0EAF00B39A34 /* PageControl.m */,
+				7245CD0B141F876F0019A9DB /* UIScrollViewTouch.h */,
+				7245CD0C141F876F0019A9DB /* UIScrollViewTouch.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		72D42EC719DC3711009852BD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7293A1DD140A8CCE009BCA82 /* ChristmasCounterViewController.h */,
+				7293A1DE140A8CCE009BCA82 /* ChristmasCounterViewController.m */,
+				7293A1DF140A8CCE009BCA82 /* ChristmasCounterViewController.xib */,
+				7293A1E2140A92A9009BCA82 /* ChristmasImageViewController.h */,
+				7293A1E3140A92A9009BCA82 /* ChristmasImageViewController.m */,
+				7293A1E4140A92A9009BCA82 /* ChristmasImageViewController.xib */,
+				72FAFC5511E28ABF0043D496 /* ColorPickerViewController.h */,
+				72FAFC5611E28ABF0043D496 /* ColorPickerViewController.m */,
+				72FAFC5711E28ABF0043D496 /* ColorPickerViewController.xib */,
+				72FAFB4511E27D480043D496 /* CountdownView.h */,
+				72FAFB4611E27D480043D496 /* CountdownView.m */,
+				725354B11474683D00128B47 /* CustomImageViewController.h */,
+				725354B21474683D00128B47 /* CustomImageViewController.m */,
+				725354B31474683D00128B47 /* CustomImageViewController.xib */,
+				72FAFC5811E28ABF0043D496 /* MusicPickerViewController.h */,
+				72FAFC5911E28ABF0043D496 /* MusicPickerViewController.m */,
+				72FAFC5A11E28ABF0043D496 /* MusicPickerViewController.xib */,
+				28042007108E984D000629CD /* SettingsViewController.h */,
+				28042008108E984D000629CD /* SettingsViewController.m */,
+				72DE6FE5145614E90008D053 /* SettingsViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		72D42EC819DC3739009852BD /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				72FAFB3311E27B570043D496 /* AudioController.h */,
+				72FAFB3411E27B570043D496 /* AudioController.m */,
+				72ACA539193DE88F006B3B98 /* CountdownHelper.h */,
+				72ACA53A193DE88F006B3B98 /* CountdownHelper.m */,
+				72FAFB4711E27D480043D496 /* Snowflake.h */,
+				72FAFB4811E27D480043D496 /* Snowflake.m */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		72D475B111E29D3500BAA691 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				72D475B211E29D3500BAA691 /* AppIcon-iPad.png */,
+				7293A1F3140AA73C009BCA82 /* AppIcon-iPhone.png */,
+				7293A1EE140AA6A6009BCA82 /* Avatar.png */,
+				72A6A3B11619D5B000A98667 /* Default-568h@2x.png */,
+				72A6A3851619CA4900A98667 /* Elf-568h@2x.png */,
+				72A6A3861619CA4900A98667 /* Elf-iPad.png */,
+				72A6A3871619CA4900A98667 /* Elf-iPad@2x.png */,
+				72A6A3881619CA4900A98667 /* Elf.png */,
+				72A6A3891619CA4900A98667 /* Elf@2x.png */,
+				72A6A38A1619CA4900A98667 /* Reindeer-568h@2x.png */,
+				72A6A38B1619CA4900A98667 /* Reindeer-iPad.png */,
+				72A6A38C1619CA4900A98667 /* Reindeer-iPad@2x.png */,
+				72A6A38D1619CA4900A98667 /* Reindeer.png */,
+				72A6A38E1619CA4900A98667 /* Reindeer@2x.png */,
+				72A6A38F1619CA4900A98667 /* Santa-568h@2x.png */,
+				72A6A3901619CA4900A98667 /* Santa-iPad.png */,
+				72A6A3911619CA4900A98667 /* Santa-iPad@2x.png */,
+				72A6A3921619CA4900A98667 /* Santa.png */,
+				72A6A3931619CA4900A98667 /* Santa@2x.png */,
+				72A6A3941619CA4900A98667 /* Snowman-568h@2x.png */,
+				72A6A3951619CA4900A98667 /* Snowman-iPad.png */,
+				72A6A3961619CA4900A98667 /* Snowman-iPad@2x.png */,
+				72A6A3971619CA4900A98667 /* Snowman.png */,
+				72A6A3981619CA4900A98667 /* Snowman@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		72FAFB8911E280E40043D496 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				72FAFB8C11E280E40043D496 /* Jingle Bells.mp3 */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		72FAFC1A11E2863B0043D496 /* UITableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				72FAFC1B11E2865F0043D496 /* UITableViewPickerCell.h */,
+				72FAFC1C11E2865F0043D496 /* UITableViewPickerCell.m */,
+				72FAFC1D11E2865F0043D496 /* UITableViewSliderCell.h */,
+				72FAFC1E11E2865F0043D496 /* UITableViewSliderCell.m */,
+			);
+			path = UITableViewCell;
+			sourceTree = "<group>";
+		};
+		B45FADD0B5A5BF4DF86EDD07 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5A0AB659AFE9DF1FB3BC54F5 /* Pods-Christmas Countdown HD.debug.xcconfig */,
+				2BA8CF36477FB215E7BC9165 /* Pods-Christmas Countdown HD.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* Christmas Countdown HD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Christmas Countdown HD" */;
+			buildPhases = (
+				C01C0DA21A6FA8D0B340F6E5 /* [CP] Check Pods Manifest.lock */,
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				72ACA538193DE6CB006B3B98 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				72BF666A19DB47DC0085022B /* PBXTargetDependency */,
+				72BF666D19DB47DC0085022B /* PBXTargetDependency */,
+			);
+			name = "Christmas Countdown HD";
+			productName = "Christmas Countdown HD";
+			productReference = 1D6058910D05DD3D006BFB54 /* Christmas Countdown HD.app */;
+			productType = "com.apple.product-type.application";
+		};
+		72BF665E19DB47DC0085022B /* CountdownExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72BF666E19DB47DC0085022B /* Build configuration list for PBXNativeTarget "CountdownExtension" */;
+			buildPhases = (
+				72BF665B19DB47DC0085022B /* Sources */,
+				72BF665C19DB47DC0085022B /* Frameworks */,
+				72BF665D19DB47DC0085022B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CountdownExtension;
+			productName = CountdownExtension;
+			productReference = 72BF665F19DB47DC0085022B /* CountdownExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1110;
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
+					};
+					72BF665E19DB47DC0085022B = {
+						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = LKJB72232C;
+					};
+				};
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Christmas Countdown HD" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+				de,
+				fr,
+				ja,
+				Base,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* Christmas Countdown HD */,
+				72BF665E19DB47DC0085022B /* CountdownExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72FAFB9011E280E40043D496 /* Jingle Bells.mp3 in Resources */,
+				72FAFC5C11E28ABF0043D496 /* ColorPickerViewController.xib in Resources */,
+				72FAFC5E11E28ABF0043D496 /* MusicPickerViewController.xib in Resources */,
+				72D42EC519DC2940009852BD /* Images.xcassets in Resources */,
+				72D475B311E29D3500BAA691 /* AppIcon-iPad.png in Resources */,
+				7293A1D8140A7D7B009BCA82 /* MainWindow.xib in Resources */,
+				7293A1E1140A8CCE009BCA82 /* ChristmasCounterViewController.xib in Resources */,
+				7293A1E6140A92A9009BCA82 /* ChristmasImageViewController.xib in Resources */,
+				7293A1F2140AA6A6009BCA82 /* Avatar.png in Resources */,
+				7293A1F4140AA73C009BCA82 /* AppIcon-iPhone.png in Resources */,
+				72DE6FE6145614E90008D053 /* SettingsViewController.xib in Resources */,
+				725354B51474683D00128B47 /* CustomImageViewController.xib in Resources */,
+				72ABB5F41475B66A00530D15 /* MainWindow-iPad.xib in Resources */,
+				72A6A3991619CA4900A98667 /* Elf-568h@2x.png in Resources */,
+				72A6A39A1619CA4900A98667 /* Elf-iPad.png in Resources */,
+				72A6A39B1619CA4900A98667 /* Elf-iPad@2x.png in Resources */,
+				72A6A39C1619CA4900A98667 /* Elf.png in Resources */,
+				72A6A39D1619CA4900A98667 /* Elf@2x.png in Resources */,
+				72A6A39E1619CA4900A98667 /* Reindeer-568h@2x.png in Resources */,
+				72A6A39F1619CA4900A98667 /* Reindeer-iPad.png in Resources */,
+				72A6A3A01619CA4900A98667 /* Reindeer-iPad@2x.png in Resources */,
+				72A6A3A11619CA4900A98667 /* Reindeer.png in Resources */,
+				72A6A3A21619CA4900A98667 /* Reindeer@2x.png in Resources */,
+				72A6A3A31619CA4900A98667 /* Santa-568h@2x.png in Resources */,
+				72A6A3A41619CA4900A98667 /* Santa-iPad.png in Resources */,
+				72A6A3A51619CA4900A98667 /* Santa-iPad@2x.png in Resources */,
+				72A6A3A61619CA4900A98667 /* Santa.png in Resources */,
+				72A6A3A71619CA4900A98667 /* Santa@2x.png in Resources */,
+				72A6A3A81619CA4900A98667 /* Snowman-568h@2x.png in Resources */,
+				72A6A3A91619CA4900A98667 /* Snowman-iPad.png in Resources */,
+				72A6A3AA1619CA4900A98667 /* Snowman-iPad@2x.png in Resources */,
+				72A6A3AB1619CA4900A98667 /* Snowman.png in Resources */,
+				72A6A3AC1619CA4900A98667 /* Snowman@2x.png in Resources */,
+				72A6A3B21619D5B000A98667 /* Default-568h@2x.png in Resources */,
+				72A6A3B6161A312000A98667 /* Icon@2x.png in Resources */,
+				72A6A3B8161A317300A98667 /* Icon-iPad@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72BF665D19DB47DC0085022B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72BF666819DB47DC0085022B /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C01C0DA21A6FA8D0B340F6E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Christmas Countdown HD-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* ChristmasCountdownAppDelegate.m in Sources */,
+				2804200B108E984D000629CD /* SettingsViewController.m in Sources */,
+				72FAFB3511E27B570043D496 /* AudioController.m in Sources */,
+				72FAFB4911E27D480043D496 /* CountdownView.m in Sources */,
+				72FAFB4A11E27D480043D496 /* Snowflake.m in Sources */,
+				72FAFC1F11E2865F0043D496 /* UITableViewPickerCell.m in Sources */,
+				72FAFC2011E2865F0043D496 /* UITableViewSliderCell.m in Sources */,
+				72FAFC5B11E28ABF0043D496 /* ColorPickerViewController.m in Sources */,
+				72FAFC5D11E28ABF0043D496 /* MusicPickerViewController.m in Sources */,
+				7293A1E0140A8CCE009BCA82 /* ChristmasCounterViewController.m in Sources */,
+				7293A1E5140A92A9009BCA82 /* ChristmasImageViewController.m in Sources */,
+				7245CD0D141F876F0019A9DB /* UIScrollViewTouch.m in Sources */,
+				724711C8146A0EAF00B39A34 /* PageControl.m in Sources */,
+				725354B41474683D00128B47 /* CustomImageViewController.m in Sources */,
+				72ACA53B193DE88F006B3B98 /* CountdownHelper.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72BF665B19DB47DC0085022B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72BF666619DB47DC0085022B /* TodayViewController.m in Sources */,
+				72BF667119DB480E0085022B /* CountdownHelper.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		72BF666A19DB47DC0085022B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 72BF665E19DB47DC0085022B /* CountdownExtension */;
+			targetProxy = 72BF666919DB47DC0085022B /* PBXContainerItemProxy */;
+		};
+		72BF666D19DB47DC0085022B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 72BF665E19DB47DC0085022B /* CountdownExtension */;
+			targetProxy = 72BF666C19DB47DC0085022B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A0AB659AFE9DF1FB3BC54F5 /* Pods-Christmas Countdown HD.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Other Sources/ChristmasCountdownPrefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_THUMB_SUPPORT = NO;
+				INFOPLIST_FILE = "Resources/Christmas_Countdown_HD-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoogleAnalyticsServicesiOS_3.09",
+					"$(PROJECT_DIR)/GoogleMobileAdsSdkiOS-6.12.0/Adapters",
+					"$(PROJECT_DIR)/GoogleMobileAdsSdkiOS-6.12.0",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hankinsoft.christmascountdown;
+				PRODUCT_NAME = "Christmas Countdown HD";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BA8CF36477FB215E7BC9165 /* Pods-Christmas Countdown HD.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Other Sources/ChristmasCountdownPrefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GCC_THUMB_SUPPORT = NO;
+				INFOPLIST_FILE = "Resources/Christmas_Countdown_HD-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoogleAnalyticsServicesiOS_3.09",
+					"$(PROJECT_DIR)/GoogleMobileAdsSdkiOS-6.12.0/Adapters",
+					"$(PROJECT_DIR)/GoogleMobileAdsSdkiOS-6.12.0",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hankinsoft.christmascountdown;
+				PRODUCT_NAME = "Christmas Countdown HD";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		72BF666F19DB47DC0085022B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "CountdownExtension/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hankinsoft.christmascountdown.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		72BF667019DB47DC0085022B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "CountdownExtension/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hankinsoft.christmascountdown.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_THUMB_SUPPORT = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_THUMB_SUPPORT = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Christmas Countdown HD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72BF666E19DB47DC0085022B /* Build configuration list for PBXNativeTarget "CountdownExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72BF666F19DB47DC0085022B /* Debug */,
+				72BF667019DB47DC0085022B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Christmas Countdown HD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
