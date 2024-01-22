@@ -1,5 +1,5 @@
 //
-//  CountdownView.h
+//  CCDCountdownView.h
 //  ChristmasCounter
 //
 //  Created by Kyle Hankinson on 04/08/09.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface CountdownView : UIView
+@interface CCDCountdownView : UIView
 {
 	NSDate		* christmasDay;
 	BOOL		countdownEnabled;

@@ -1,5 +1,5 @@
 //
-//  SettingsViewController.m
+//  CCDSettingsViewController.m
 //  Christmas Countdown HD
 //
 //  Created by Kyle Hankinson on 10-07-05.
@@ -8,12 +8,12 @@
 
 #import "ChristmasCountdownAppDelegate.h"
 #import "ChristmasCounterViewController.h"
-#import "SettingsViewController.h"
+#import "CCDSettingsViewController.h"
 #import "UITableViewSliderCell.h"
 #import "ColorPickerViewController.h"
 #import "MusicPickerViewController.h"
 #import "CustomImageViewController.h"
-#import "CountdownView.h"
+#import "CCDCountdownView.h"
 
 #import <Twitter/Twitter.h>
 #import <Social/Social.h>
@@ -32,7 +32,7 @@
 #define MiscSection			2
 #define ShareSection        3
 
-@interface SettingsViewController ()<MFMailComposeViewControllerDelegate>
+@interface CCDSettingsViewController ()<MFMailComposeViewControllerDelegate>
 {
     // Advertisement stuff
     BOOL                    bannerIsVisible;
@@ -44,7 +44,7 @@
 
 @end
 
-@implementation SettingsViewController
+@implementation CCDSettingsViewController
 {
     SLComposeViewController * mySLComposeViewController;
 }
@@ -70,10 +70,13 @@ static NSString *SettingsCellIdentifier = @"SettingsCell";
 	[self setTitle: @"Settings"];
 
     // Add our done bar button item
-    UIBarButtonItem * doneBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style: UIBarButtonItemStyleDone target:self action:@selector(settingsViewDone:)];
+    UIBarButtonItem * doneBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: @"Done"
+                                                                           style: UIBarButtonItemStyleDone
+                                                                          target: self
+                                                                          action: @selector(settingsViewDone:)];
     self.navigationItem.leftBarButtonItem = doneBarButtonItem;
 
-    self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
+    self.preferredContentSize = CGSizeMake(320.0, 400.0);
 
 	NSMutableDictionary * settingsDictionary = [[NSMutableDictionary alloc] init];
 
@@ -235,7 +238,7 @@ static NSString *SettingsCellIdentifier = @"SettingsCell";
 	[[NSUserDefaults standardUserDefaults] setInteger: [sender value] forKey:@"SnowflakeSize"];
 	NSLog ( @"SizeSliderAction: %f", [sender value] );
 
-    [SettingsViewController postSnowflakesNeedUpdate];
+    [CCDSettingsViewController postSnowflakesNeedUpdate];
 }
 
 - (void)speedSliderAction:(UISlider*)sender
@@ -243,7 +246,7 @@ static NSString *SettingsCellIdentifier = @"SettingsCell";
 	[[NSUserDefaults standardUserDefaults] setInteger: [sender value] forKey:@"SnowflakeSpeed"];
 	NSLog ( @"SpeedSliderAction: %f", [sender value] );
 
-    [SettingsViewController postSnowflakesNeedUpdate];
+    [CCDSettingsViewController postSnowflakesNeedUpdate];
 }
 
 - (void)countSliderAction:(UISlider*)sender
@@ -251,7 +254,7 @@ static NSString *SettingsCellIdentifier = @"SettingsCell";
 	[[NSUserDefaults standardUserDefaults] setInteger: [sender value] forKey:@"SnowflakeCount"];
 	NSLog ( @"CountSliderAction: %f", [sender value] );
 
-    [SettingsViewController postSnowflakesNeedUpdate];
+    [CCDSettingsViewController postSnowflakesNeedUpdate];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -411,11 +414,13 @@ static NSString *SettingsCellIdentifier = @"SettingsCell";
 #pragma mark -
 #pragma mark Table view delegate
 
-- (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)      tableView: (UITableView *) aTableView
+didSelectRowAtIndexPath: (NSIndexPath *) indexPath
 {
 	// Deselect the row
-	[aTableView deselectRowAtIndexPath:[aTableView indexPathForSelectedRow] animated:YES];
-	
+	[aTableView deselectRowAtIndexPath: [aTableView indexPathForSelectedRow]
+                              animated: YES];
+
     // Get the cell they are clicking on
     UITableViewCell * cell = [aTableView cellForRowAtIndexPath: indexPath];
 	
@@ -424,7 +429,7 @@ static NSString *SettingsCellIdentifier = @"SettingsCell";
 	{
 		ColorPickerViewController *colorPickerViewController = [[ColorPickerViewController alloc]initWithNibName:@"ColorPickerViewController" bundle: [NSBundle mainBundle]];
 
-        colorPickerViewController.title = @"Snowflake Color";
+        colorPickerViewController.title = @"CCDSnowflake Color";
         colorPickerViewController.property = @"SnowflakeColor";
 
         colorPickerViewController.generalArray = 	[[NSArray alloc] initWithObjects: @"White", @"Blue", @"Pink", @"Yellow", @"Green", @"Purple", @"Rainbow", nil];

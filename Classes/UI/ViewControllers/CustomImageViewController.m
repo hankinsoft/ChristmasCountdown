@@ -9,7 +9,7 @@
 #import "CustomImageViewController.h"
 #import "ChristmasImageViewController.h"
 
-@interface CustomImageViewController()<UIImagePickerControllerDelegate>
+@interface CustomImageViewController()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 - (UIImage *)scaleAndRotateImage:(UIImage *)image;
 
@@ -27,7 +27,7 @@
  */
 
 
-- (void)viewDidLoad
+- (void) viewDidLoad
 {
     [super viewDidLoad];
 
@@ -44,12 +44,6 @@
 	
 	// Release any cached data, images, etc that aren't in use.
 }
-
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-}
-
 
 #pragma mark Table view methods
 

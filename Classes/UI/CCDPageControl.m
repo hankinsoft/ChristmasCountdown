@@ -1,18 +1,18 @@
 //
-//  PageControl.m
+//  CCDPageControl.m
 //
 //  Replacement for UIPageControl because that one only supports white dots.
 //
 //  Created by Morten Heiberg <morten@heiberg.net> on November 1, 2010.
 //
 
-#import "PageControl.h"
+#import "CCDPageControl.h"
 
 // Tweak these or make them dynamic.
 #define kDotDiameter 7.0
 #define kDotSpacer 7.0
 
-@implementation PageControl
+@implementation CCDPageControl
 
 @synthesize dotColorCurrentPage;
 @synthesize dotColorOtherPage;

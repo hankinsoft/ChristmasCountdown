@@ -1,5 +1,5 @@
 //
-//  PageControl.h
+//  CCDPageControl.h
 //
 //  Replacement for UIPageControl because that one only supports white dots.
 //
@@ -10,7 +10,7 @@
 
 @protocol PageControlDelegate;
 
-@interface PageControl : UIView 
+@interface CCDPageControl : UIView 
 {
 @private
     NSInteger _currentPage;
@@ -20,7 +20,7 @@
     NSObject<PageControlDelegate> *delegate;
 }
 
-// Set these to control the PageControl.
+// Set these to control the CCDPageControl.
 @property (nonatomic) NSInteger currentPage;
 @property (nonatomic) NSInteger numberOfPages;
 
@@ -35,5 +35,5 @@
 
 @protocol PageControlDelegate<NSObject>
 @optional
-- (void)pageControlPageDidChange:(PageControl *)pageControl;
+- (void)pageControlPageDidChange:(CCDPageControl *)pageControl;
 @end

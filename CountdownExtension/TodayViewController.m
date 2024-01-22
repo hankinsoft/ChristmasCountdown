@@ -8,7 +8,7 @@
 
 #import "TodayViewController.h"
 #import <NotificationCenter/NotificationCenter.h>
-#import "CountdownHelper.h"
+#import "CCDCountdownHelper.h"
 
 @interface TodayViewController () <NCWidgetProviding>
 {
@@ -58,7 +58,7 @@
 
 - (void) updateDisplay
 {
-    countdownDateLabel.text = [CountdownHelper stringForDaysAway: [NSDate date]
+    countdownDateLabel.text = [CCDCountdownHelper stringForDaysAway: [NSDate date]
                                                 includeLinebreak: NO];
     
     // Size to fit

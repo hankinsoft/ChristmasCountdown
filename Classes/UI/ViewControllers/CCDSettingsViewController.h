@@ -1,5 +1,5 @@
 //
-//  SettingsViewController.h
+//  CCDSettingsViewController.h
 //  Christmas Countdown HD
 //
 //  Created by Kyle Hankinson on 10-07-05.
@@ -18,7 +18,7 @@
 @class ChristmasCounterViewController;
 @class FBLoginView;
 
-@interface SettingsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface CCDSettingsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
 	NSDictionary						* settingsCells;
 

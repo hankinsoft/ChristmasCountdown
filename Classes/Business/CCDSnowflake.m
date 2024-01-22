@@ -1,20 +1,20 @@
 //
-//  Snowflake.m
+//  CCDSnowflake.m
 //  ChristmasCounter
 //
 //  Created by Kyle Hankinson on 04/08/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "Snowflake.h"
+#import "CCDSnowflake.h"
 
 #define RANDOM_INT(__MIN__, __MAX__) ((__MIN__) + random() % ((__MAX__+1) - (__MIN__)))
 
-@implementation Snowflake
+@implementation CCDSnowflake
 
 static float sine[360];
 
-+ (void)initialize
++ (void) initialize
 {
 	// Generate our sine wave
 	for(int i=0;i<360;i++)

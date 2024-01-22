@@ -1,5 +1,5 @@
 //
-//  Snowflake.h
+//  CCDSnowflake.h
 //  ChristmasCounter
 //
 //  Created by Kyle Hankinson on 04/08/09.
@@ -10,7 +10,7 @@
 
 #define			RADCOUNT	10
 
-@interface Snowflake : UIView
+@interface CCDSnowflake : UIView
 {
 	NSUInteger		speedY;
 	NSUInteger		frame;

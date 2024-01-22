@@ -25,7 +25,7 @@
 {
     [super viewDidLoad];
 
-    self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
+    self.preferredContentSize = CGSizeMake(320.0, 600.0);
 
 	// We are on the music page
 	[self setTitle: @"Music"];
@@ -80,12 +80,6 @@
 	// Release any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-}
-
-
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -130,7 +124,7 @@
 	if ( 0 == indexPath.section )
 	{
 		// Set up the cell...
-		[[cell textLabel] setText: @"Select Song"];
+		[[cell textLabel] setText: @"Select a song..."];
 		[cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
 
 		if ( nil != [[(ChristmasCountdownAppDelegate *)[[UIApplication sharedApplication] delegate] audioController] mediaItemPropertyPersistentID] )
@@ -173,7 +167,7 @@ titleForHeaderInSection: (NSInteger)section
 {
 	if ( 0 == section )
 	{
-		return @"iPod Library";
+		return @"MUSIC LIBRARY";
 	}
 	else
 	{
@@ -181,8 +175,8 @@ titleForHeaderInSection: (NSInteger)section
 	}
 }
 
-- (NSString *)tableView:(UITableView *)aTableView
-titleForFooterInSection:(NSInteger)section
+- (NSString *) tableView: (UITableView *) aTableView
+ titleForFooterInSection: (NSInteger) section
 {
 	if ( 1 == section )
 	{
@@ -218,13 +212,14 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
                            animated: YES
                          completion: ^{}];
 #else
-		UIAlertView *uiAlert = [[UIAlertView alloc] initWithTitle: @"Simulator Error"
-														  message: @"Unable to launch the media picker when using the simulator."
-														 delegate: nil
-												cancelButtonTitle: @"OK"
-												otherButtonTitles: nil];
-		
-		[uiAlert show];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Simulator Error"
+                                                                                 message:@"Unable to launch the media picker when using the simulator."
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:nil];
+        [alertController addAction:okAction];
+        [self presentViewController:alertController animated:YES completion:nil];
 #endif
 	} // End of picking from the iPod library
 	// If the user is picking from the classics section
@@ -238,7 +233,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         [checkedCell setAccessoryType: UITableViewCellAccessoryCheckmark];
 
         // If the audio does not exist, try downloading it
-        if ( ![[NSFileManager defaultManager] fileExistsAtPath: [AudioController pathForAudio: [musicArray objectAtIndex: indexPath.row]]] )
+        if ( ![[NSFileManager defaultManager] fileExistsAtPath: [CCDAudioController pathForAudio: [musicArray objectAtIndex: indexPath.row]]] )
         {
             // The hud will dispable all input on the view
             progressHUD = [[MBProgressHUD alloc] initWithView:self.view];
@@ -280,68 +275,34 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         dispatch_async(dispatch_get_main_queue(), ^{
             if(nil == data)
             {
-                    UIAlertView * alert = [[UIAlertView alloc] initWithTitle: @"Failed to download"
-                                                               message: @"The selected song was unable to be downloaded. Please make sure you have an active network connection the first time a song is selected."
-                                                              delegate: self
-                                                     cancelButtonTitle: @"OK"
-                                                     otherButtonTitles: nil];
+                UIAlertController *alertController = nil;
+                alertController = [UIAlertController alertControllerWithTitle: @"Failed to Download"
+                                                                      message: @"The selected song was unable to be downloaded. Please make sure you have an active network connection the first time a song is selected."
+                                                               preferredStyle: UIAlertControllerStyleAlert];
 
-                    [alert show];
+                UIAlertAction *okAction = [UIAlertAction actionWithTitle: @"OK"
+                                                                   style: UIAlertActionStyleDefault
+                                                                 handler: nil];
+
+                [alertController addAction:okAction];
+                [self presentViewController: alertController
+                                   animated: YES
+                                 completion: nil];
             }
             else
             {
                 // Save our data and play the music
-                [data writeToFile: [AudioController pathForAudio: songName] atomically:YES];
+                [data writeToFile: [CCDAudioController pathForAudio: songName] atomically:YES];
 
                 // Set our sond & restart the music
                 [[(ChristmasCountdownAppDelegate *)[[UIApplication sharedApplication] delegate] audioController] setSong: songName];
                 [[(ChristmasCountdownAppDelegate *)[[UIApplication sharedApplication] delegate] audioController] restart];
             } // End of file was saved
 
-            [progressHUD hide: YES];
+            [self->progressHUD hideAnimated: YES];
         });
     }
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark Media Picker delegates
 

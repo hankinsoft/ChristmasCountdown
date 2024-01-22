@@ -73,6 +73,8 @@
 	<string>MainWindow-iPad</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allows picking a photo to use as a background.</string>
+	<key>UILaunchStoryboardName</key>
+	<string>Launch Screen.storyboard</string>
 	<key>UIRequiresFullScreen</key>
 	<true/>
 	<key>UIStatusBarHidden</key>

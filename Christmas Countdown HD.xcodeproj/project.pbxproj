@@ -11,16 +11,13 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		2804200B108E984D000629CD /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28042008108E984D000629CD /* SettingsViewController.m */; };
+		2804200B108E984D000629CD /* CCDSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28042008108E984D000629CD /* CCDSettingsViewController.m */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		72338976175D2379008514CB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72338975175D2379008514CB /* AudioToolbox.framework */; };
 		72338978175D237E008514CB /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72338977175D237E008514CB /* CoreAudio.framework */; };
 		7245CD0D141F876F0019A9DB /* UIScrollViewTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 7245CD0C141F876F0019A9DB /* UIScrollViewTouch.m */; };
-		724711C8146A0EAF00B39A34 /* PageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 724711C7146A0EAF00B39A34 /* PageControl.m */; };
-		72471BB6163482430060E178 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72471BB41634822F0060E178 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		72471BB7163482430060E178 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72471BB21634822B0060E178 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		724711C8146A0EAF00B39A34 /* CCDPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 724711C7146A0EAF00B39A34 /* CCDPageControl.m */; };
 		72471BB8163482430060E178 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72471BB0163482260060E178 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		72471BB9163482430060E178 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727F7285163337A600E92024 /* Twitter.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		72471BBB1634825A0060E178 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7245CF08141FC5CA0019A9DB /* MessageUI.framework */; };
 		72471BBC1634825A0060E178 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7245CF06141FC5AD0019A9DB /* SystemConfiguration.framework */; };
 		72471BBD1634825A0060E178 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7245CF04141FC5880019A9DB /* Security.framework */; };
@@ -28,12 +25,13 @@
 		724A48591646917D002D2BE8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724A48581646917D002D2BE8 /* CoreData.framework */; };
 		725354B41474683D00128B47 /* CustomImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 725354B21474683D00128B47 /* CustomImageViewController.m */; };
 		725354B51474683D00128B47 /* CustomImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 725354B31474683D00128B47 /* CustomImageViewController.xib */; };
+		7254316B2B5EA0C10003C150 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7254316A2B5EA0C10003C150 /* MBProgressHUD.m */; };
+		7254316D2B5EB9680003C150 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7254316C2B5EB9680003C150 /* Launch Screen.storyboard */; };
 		7293A1D8140A7D7B009BCA82 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7293A1D7140A7D7B009BCA82 /* MainWindow.xib */; };
 		7293A1E0140A8CCE009BCA82 /* ChristmasCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7293A1DE140A8CCE009BCA82 /* ChristmasCounterViewController.m */; };
 		7293A1E1140A8CCE009BCA82 /* ChristmasCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7293A1DF140A8CCE009BCA82 /* ChristmasCounterViewController.xib */; };
 		7293A1E5140A92A9009BCA82 /* ChristmasImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7293A1E3140A92A9009BCA82 /* ChristmasImageViewController.m */; };
 		7293A1E6140A92A9009BCA82 /* ChristmasImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7293A1E4140A92A9009BCA82 /* ChristmasImageViewController.xib */; };
-		7293A1E8140AA63F009BCA82 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7293A1E7140AA63F009BCA82 /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7293A1F2140AA6A6009BCA82 /* Avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7293A1EE140AA6A6009BCA82 /* Avatar.png */; };
 		7293A1F4140AA73C009BCA82 /* AppIcon-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 7293A1F3140AA73C009BCA82 /* AppIcon-iPhone.png */; };
 		72975872183EE2D70088CE63 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72975871183EE2D70088CE63 /* StoreKit.framework */; };
@@ -61,25 +59,25 @@
 		72A6A3B6161A312000A98667 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A3B5161A312000A98667 /* Icon@2x.png */; };
 		72A6A3B8161A317300A98667 /* Icon-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A6A3B7161A317300A98667 /* Icon-iPad@2x.png */; };
 		72ABB5F41475B66A00530D15 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72ABB5F31475B66A00530D15 /* MainWindow-iPad.xib */; };
-		72ACA53B193DE88F006B3B98 /* CountdownHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 72ACA53A193DE88F006B3B98 /* CountdownHelper.m */; };
+		72ACA53B193DE88F006B3B98 /* CCDCountdownHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 72ACA53A193DE88F006B3B98 /* CCDCountdownHelper.m */; };
 		72BF666019DB47DC0085022B /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72ACA526193DE6CB006B3B98 /* NotificationCenter.framework */; };
 		72BF666619DB47DC0085022B /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BF666519DB47DC0085022B /* TodayViewController.m */; };
 		72BF666819DB47DC0085022B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72BF666719DB47DC0085022B /* MainInterface.storyboard */; };
 		72BF666B19DB47DC0085022B /* CountdownExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 72BF665F19DB47DC0085022B /* CountdownExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		72BF667119DB480E0085022B /* CountdownHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 72ACA53A193DE88F006B3B98 /* CountdownHelper.m */; };
+		72BF667119DB480E0085022B /* CCDCountdownHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 72ACA53A193DE88F006B3B98 /* CCDCountdownHelper.m */; };
 		72C499E419DB342600E6EDBF /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C499E219DB342600E6EDBF /* EventKit.framework */; };
 		72C499E519DB342600E6EDBF /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C499E319DB342600E6EDBF /* EventKitUI.framework */; };
 		72C499E719DB344E00E6EDBF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C499E619DB344E00E6EDBF /* libz.dylib */; };
 		72C499E919DB346C00E6EDBF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C499E819DB346C00E6EDBF /* CoreTelephony.framework */; };
 		72D42EC519DC2940009852BD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72D42EC419DC2940009852BD /* Images.xcassets */; };
 		72D475B311E29D3500BAA691 /* AppIcon-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 72D475B211E29D3500BAA691 /* AppIcon-iPad.png */; };
-		72DE6FE6145614E90008D053 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72DE6FE5145614E90008D053 /* SettingsViewController.xib */; };
+		72DE6FE6145614E90008D053 /* CCDSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72DE6FE5145614E90008D053 /* CCDSettingsViewController.xib */; };
 		72E8C08C16389F210040321F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E8C08B16389F210040321F /* CFNetwork.framework */; };
 		72FAFB2C11E27ACC0043D496 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FAFB2B11E27ACC0043D496 /* AVFoundation.framework */; };
 		72FAFB2E11E27ACC0043D496 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FAFB2D11E27ACC0043D496 /* MediaPlayer.framework */; };
-		72FAFB3511E27B570043D496 /* AudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FAFB3411E27B570043D496 /* AudioController.m */; };
-		72FAFB4911E27D480043D496 /* CountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FAFB4611E27D480043D496 /* CountdownView.m */; };
-		72FAFB4A11E27D480043D496 /* Snowflake.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FAFB4811E27D480043D496 /* Snowflake.m */; };
+		72FAFB3511E27B570043D496 /* CCDAudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FAFB3411E27B570043D496 /* CCDAudioController.m */; };
+		72FAFB4911E27D480043D496 /* CCDCountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FAFB4611E27D480043D496 /* CCDCountdownView.m */; };
+		72FAFB4A11E27D480043D496 /* CCDSnowflake.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FAFB4811E27D480043D496 /* CCDSnowflake.m */; };
 		72FAFB9011E280E40043D496 /* Jingle Bells.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 72FAFB8C11E280E40043D496 /* Jingle Bells.mp3 */; };
 		72FAFC1F11E2865F0043D496 /* UITableViewPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FAFC1C11E2865F0043D496 /* UITableViewPickerCell.m */; };
 		72FAFC2011E2865F0043D496 /* UITableViewSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FAFC1E11E2865F0043D496 /* UITableViewSliderCell.m */; };
@@ -87,7 +85,6 @@
 		72FAFC5C11E28ABF0043D496 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72FAFC5711E28ABF0043D496 /* ColorPickerViewController.xib */; };
 		72FAFC5D11E28ABF0043D496 /* MusicPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FAFC5911E28ABF0043D496 /* MusicPickerViewController.m */; };
 		72FAFC5E11E28ABF0043D496 /* MusicPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72FAFC5A11E28ABF0043D496 /* MusicPickerViewController.xib */; };
-		7B005C4685D6229B8E347FED /* libPods-Christmas Countdown HD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8050B44566C3F14B718399C /* libPods-Christmas Countdown HD.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,13 +124,11 @@
 		1D3623250D0F684500981E51 /* ChristmasCountdownAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChristmasCountdownAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* Christmas Countdown HD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Christmas Countdown HD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		28042007108E984D000629CD /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		28042008108E984D000629CD /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		28042007108E984D000629CD /* CCDSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDSettingsViewController.h; sourceTree = "<group>"; };
+		28042008108E984D000629CD /* CCDSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDSettingsViewController.m; sourceTree = "<group>"; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* ChristmasCountdownPrefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChristmasCountdownPrefix.pch; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2BA8CF36477FB215E7BC9165 /* Pods-Christmas Countdown HD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Christmas Countdown HD.release.xcconfig"; path = "Target Support Files/Pods-Christmas Countdown HD/Pods-Christmas Countdown HD.release.xcconfig"; sourceTree = "<group>"; };
-		5A0AB659AFE9DF1FB3BC54F5 /* Pods-Christmas Countdown HD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Christmas Countdown HD.debug.xcconfig"; path = "Target Support Files/Pods-Christmas Countdown HD/Pods-Christmas Countdown HD.debug.xcconfig"; sourceTree = "<group>"; };
 		72069E13143BE7AB007ECA91 /* Christmas Countdown HD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Christmas Countdown HD.entitlements"; sourceTree = "<group>"; };
 		72338975175D2379008514CB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		72338977175D237E008514CB /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
@@ -142,8 +137,8 @@
 		7245CF04141FC5880019A9DB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7245CF06141FC5AD0019A9DB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7245CF08141FC5CA0019A9DB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		724711C6146A0EAF00B39A34 /* PageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageControl.h; sourceTree = "<group>"; };
-		724711C7146A0EAF00B39A34 /* PageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageControl.m; sourceTree = "<group>"; };
+		724711C6146A0EAF00B39A34 /* CCDPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDPageControl.h; sourceTree = "<group>"; };
+		724711C7146A0EAF00B39A34 /* CCDPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDPageControl.m; sourceTree = "<group>"; };
 		72471BB0163482260060E178 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		72471BB21634822B0060E178 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		72471BB41634822F0060E178 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -152,6 +147,9 @@
 		725354B11474683D00128B47 /* CustomImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomImageViewController.h; sourceTree = "<group>"; };
 		725354B21474683D00128B47 /* CustomImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomImageViewController.m; sourceTree = "<group>"; };
 		725354B31474683D00128B47 /* CustomImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomImageViewController.xib; sourceTree = "<group>"; };
+		725431692B5EA0C10003C150 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		7254316A2B5EA0C10003C150 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		7254316C2B5EB9680003C150 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		727F7285163337A600E92024 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		7293A1D7140A7D7B009BCA82 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		7293A1DD140A8CCE009BCA82 /* ChristmasCounterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChristmasCounterViewController.h; sourceTree = "<group>"; };
@@ -190,8 +188,8 @@
 		72AB7E5A1A1CD4EE000D500D /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = System/Library/Frameworks/WatchKit.framework; sourceTree = SDKROOT; };
 		72ABB5F31475B66A00530D15 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		72ACA526193DE6CB006B3B98 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		72ACA539193DE88F006B3B98 /* CountdownHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownHelper.h; sourceTree = "<group>"; };
-		72ACA53A193DE88F006B3B98 /* CountdownHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownHelper.m; sourceTree = "<group>"; };
+		72ACA539193DE88F006B3B98 /* CCDCountdownHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDCountdownHelper.h; sourceTree = "<group>"; };
+		72ACA53A193DE88F006B3B98 /* CCDCountdownHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDCountdownHelper.m; sourceTree = "<group>"; };
 		72BF661819DB39D20085022B /* Christmas_Countdown_HD_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Christmas_Countdown_HD_Prefix.pch; sourceTree = "<group>"; };
 		72BF665F19DB47DC0085022B /* CountdownExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CountdownExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		72BF666319DB47DC0085022B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -204,16 +202,16 @@
 		72C499E819DB346C00E6EDBF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		72D42EC419DC2940009852BD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		72D475B211E29D3500BAA691 /* AppIcon-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-iPad.png"; sourceTree = "<group>"; };
-		72DE6FE5145614E90008D053 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		72DE6FE5145614E90008D053 /* CCDSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCDSettingsViewController.xib; sourceTree = "<group>"; };
 		72E8C08B16389F210040321F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		72FAFB2B11E27ACC0043D496 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		72FAFB2D11E27ACC0043D496 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		72FAFB3311E27B570043D496 /* AudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioController.h; sourceTree = "<group>"; };
-		72FAFB3411E27B570043D496 /* AudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioController.m; sourceTree = "<group>"; };
-		72FAFB4511E27D480043D496 /* CountdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownView.h; sourceTree = "<group>"; };
-		72FAFB4611E27D480043D496 /* CountdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownView.m; sourceTree = "<group>"; };
-		72FAFB4711E27D480043D496 /* Snowflake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snowflake.h; sourceTree = "<group>"; };
-		72FAFB4811E27D480043D496 /* Snowflake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Snowflake.m; sourceTree = "<group>"; };
+		72FAFB3311E27B570043D496 /* CCDAudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDAudioController.h; sourceTree = "<group>"; };
+		72FAFB3411E27B570043D496 /* CCDAudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDAudioController.m; sourceTree = "<group>"; };
+		72FAFB4511E27D480043D496 /* CCDCountdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDCountdownView.h; sourceTree = "<group>"; };
+		72FAFB4611E27D480043D496 /* CCDCountdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDCountdownView.m; sourceTree = "<group>"; };
+		72FAFB4711E27D480043D496 /* CCDSnowflake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDSnowflake.h; sourceTree = "<group>"; };
+		72FAFB4811E27D480043D496 /* CCDSnowflake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDSnowflake.m; sourceTree = "<group>"; };
 		72FAFB8C11E280E40043D496 /* Jingle Bells.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Jingle Bells.mp3"; sourceTree = "<group>"; };
 		72FAFC1B11E2865F0043D496 /* UITableViewPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewPickerCell.h; sourceTree = "<group>"; };
 		72FAFC1C11E2865F0043D496 /* UITableViewPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewPickerCell.m; sourceTree = "<group>"; };
@@ -247,17 +245,12 @@
 				72471BC81634AD270060E178 /* libsqlite3.0.dylib in Frameworks */,
 				72FAFB2C11E27ACC0043D496 /* AVFoundation.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
-				72471BB6163482430060E178 /* Social.framework in Frameworks */,
-				72471BB7163482430060E178 /* AdSupport.framework in Frameworks */,
 				72471BB8163482430060E178 /* Accounts.framework in Frameworks */,
-				72471BB9163482430060E178 /* Twitter.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
-				7293A1E8140AA63F009BCA82 /* iAd.framework in Frameworks */,
 				72FAFB2E11E27ACC0043D496 /* MediaPlayer.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				72471BBB1634825A0060E178 /* MessageUI.framework in Frameworks */,
 				72471BBD1634825A0060E178 /* Security.framework in Frameworks */,
-				7B005C4685D6229B8E347FED /* libPods-Christmas Countdown HD.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,10 +268,12 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				725431682B5EA0A90003C150 /* MBProgressHUD */,
 				72D42EC819DC3739009852BD /* Business */,
 				72D42EC619DC3702009852BD /* UI */,
 				1D3623240D0F684500981E51 /* ChristmasCountdownAppDelegate.h */,
 				1D3623250D0F684500981E51 /* ChristmasCountdownAppDelegate.m */,
+				7254316C2B5EB9680003C150 /* Launch Screen.storyboard */,
 				72ABB5F31475B66A00530D15 /* MainWindow-iPad.xib */,
 				7293A1D7140A7D7B009BCA82 /* MainWindow.xib */,
 			);
@@ -301,7 +296,6 @@
 				72BF666119DB47DC0085022B /* CountdownExtension */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
-				B45FADD0B5A5BF4DF86EDD07 /* Pods */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				72069E13143BE7AB007ECA91 /* Christmas Countdown HD.entitlements */,
@@ -365,6 +359,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		725431682B5EA0A90003C150 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				725431692B5EA0C10003C150 /* MBProgressHUD.h */,
+				7254316A2B5EA0C10003C150 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		72BF666119DB47DC0085022B /* CountdownExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,8 +392,8 @@
 			children = (
 				72FAFC1A11E2863B0043D496 /* UITableViewCell */,
 				72D42EC719DC3711009852BD /* ViewControllers */,
-				724711C6146A0EAF00B39A34 /* PageControl.h */,
-				724711C7146A0EAF00B39A34 /* PageControl.m */,
+				724711C6146A0EAF00B39A34 /* CCDPageControl.h */,
+				724711C7146A0EAF00B39A34 /* CCDPageControl.m */,
 				7245CD0B141F876F0019A9DB /* UIScrollViewTouch.h */,
 				7245CD0C141F876F0019A9DB /* UIScrollViewTouch.m */,
 			);
@@ -409,17 +412,17 @@
 				72FAFC5511E28ABF0043D496 /* ColorPickerViewController.h */,
 				72FAFC5611E28ABF0043D496 /* ColorPickerViewController.m */,
 				72FAFC5711E28ABF0043D496 /* ColorPickerViewController.xib */,
-				72FAFB4511E27D480043D496 /* CountdownView.h */,
-				72FAFB4611E27D480043D496 /* CountdownView.m */,
+				72FAFB4511E27D480043D496 /* CCDCountdownView.h */,
+				72FAFB4611E27D480043D496 /* CCDCountdownView.m */,
 				725354B11474683D00128B47 /* CustomImageViewController.h */,
 				725354B21474683D00128B47 /* CustomImageViewController.m */,
 				725354B31474683D00128B47 /* CustomImageViewController.xib */,
 				72FAFC5811E28ABF0043D496 /* MusicPickerViewController.h */,
 				72FAFC5911E28ABF0043D496 /* MusicPickerViewController.m */,
 				72FAFC5A11E28ABF0043D496 /* MusicPickerViewController.xib */,
-				28042007108E984D000629CD /* SettingsViewController.h */,
-				28042008108E984D000629CD /* SettingsViewController.m */,
-				72DE6FE5145614E90008D053 /* SettingsViewController.xib */,
+				28042007108E984D000629CD /* CCDSettingsViewController.h */,
+				28042008108E984D000629CD /* CCDSettingsViewController.m */,
+				72DE6FE5145614E90008D053 /* CCDSettingsViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -427,12 +430,12 @@
 		72D42EC819DC3739009852BD /* Business */ = {
 			isa = PBXGroup;
 			children = (
-				72FAFB3311E27B570043D496 /* AudioController.h */,
-				72FAFB3411E27B570043D496 /* AudioController.m */,
-				72ACA539193DE88F006B3B98 /* CountdownHelper.h */,
-				72ACA53A193DE88F006B3B98 /* CountdownHelper.m */,
-				72FAFB4711E27D480043D496 /* Snowflake.h */,
-				72FAFB4811E27D480043D496 /* Snowflake.m */,
+				72FAFB3311E27B570043D496 /* CCDAudioController.h */,
+				72FAFB3411E27B570043D496 /* CCDAudioController.m */,
+				72ACA539193DE88F006B3B98 /* CCDCountdownHelper.h */,
+				72ACA53A193DE88F006B3B98 /* CCDCountdownHelper.m */,
+				72FAFB4711E27D480043D496 /* CCDSnowflake.h */,
+				72FAFB4811E27D480043D496 /* CCDSnowflake.m */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -487,15 +490,6 @@
 			path = UITableViewCell;
 			sourceTree = "<group>";
 		};
-		B45FADD0B5A5BF4DF86EDD07 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5A0AB659AFE9DF1FB3BC54F5 /* Pods-Christmas Countdown HD.debug.xcconfig */,
-				2BA8CF36477FB215E7BC9165 /* Pods-Christmas Countdown HD.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -503,7 +497,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Christmas Countdown HD" */;
 			buildPhases = (
-				C01C0DA21A6FA8D0B340F6E5 /* [CP] Check Pods Manifest.lock */,
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
@@ -546,6 +539,7 @@
 				LastUpgradeCheck = 1110;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = 4M3M3GPP6G;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 0;
@@ -554,6 +548,7 @@
 					};
 					72BF665E19DB47DC0085022B = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 4M3M3GPP6G;
 					};
 				};
 			};
@@ -594,7 +589,7 @@
 				7293A1E6140A92A9009BCA82 /* ChristmasImageViewController.xib in Resources */,
 				7293A1F2140AA6A6009BCA82 /* Avatar.png in Resources */,
 				7293A1F4140AA73C009BCA82 /* AppIcon-iPhone.png in Resources */,
-				72DE6FE6145614E90008D053 /* SettingsViewController.xib in Resources */,
+				72DE6FE6145614E90008D053 /* CCDSettingsViewController.xib in Resources */,
 				725354B51474683D00128B47 /* CustomImageViewController.xib in Resources */,
 				72ABB5F41475B66A00530D15 /* MainWindow-iPad.xib in Resources */,
 				72A6A3991619CA4900A98667 /* Elf-568h@2x.png in Resources */,
@@ -604,6 +599,7 @@
 				72A6A39D1619CA4900A98667 /* Elf@2x.png in Resources */,
 				72A6A39E1619CA4900A98667 /* Reindeer-568h@2x.png in Resources */,
 				72A6A39F1619CA4900A98667 /* Reindeer-iPad.png in Resources */,
+				7254316D2B5EB9680003C150 /* Launch Screen.storyboard in Resources */,
 				72A6A3A01619CA4900A98667 /* Reindeer-iPad@2x.png in Resources */,
 				72A6A3A11619CA4900A98667 /* Reindeer.png in Resources */,
 				72A6A3A21619CA4900A98667 /* Reindeer@2x.png in Resources */,
@@ -633,31 +629,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		C01C0DA21A6FA8D0B340F6E5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Christmas Countdown HD-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -665,20 +636,21 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* ChristmasCountdownAppDelegate.m in Sources */,
-				2804200B108E984D000629CD /* SettingsViewController.m in Sources */,
-				72FAFB3511E27B570043D496 /* AudioController.m in Sources */,
-				72FAFB4911E27D480043D496 /* CountdownView.m in Sources */,
-				72FAFB4A11E27D480043D496 /* Snowflake.m in Sources */,
+				2804200B108E984D000629CD /* CCDSettingsViewController.m in Sources */,
+				72FAFB3511E27B570043D496 /* CCDAudioController.m in Sources */,
+				72FAFB4911E27D480043D496 /* CCDCountdownView.m in Sources */,
+				72FAFB4A11E27D480043D496 /* CCDSnowflake.m in Sources */,
 				72FAFC1F11E2865F0043D496 /* UITableViewPickerCell.m in Sources */,
+				7254316B2B5EA0C10003C150 /* MBProgressHUD.m in Sources */,
 				72FAFC2011E2865F0043D496 /* UITableViewSliderCell.m in Sources */,
 				72FAFC5B11E28ABF0043D496 /* ColorPickerViewController.m in Sources */,
 				72FAFC5D11E28ABF0043D496 /* MusicPickerViewController.m in Sources */,
 				7293A1E0140A8CCE009BCA82 /* ChristmasCounterViewController.m in Sources */,
 				7293A1E5140A92A9009BCA82 /* ChristmasImageViewController.m in Sources */,
 				7245CD0D141F876F0019A9DB /* UIScrollViewTouch.m in Sources */,
-				724711C8146A0EAF00B39A34 /* PageControl.m in Sources */,
+				724711C8146A0EAF00B39A34 /* CCDPageControl.m in Sources */,
 				725354B41474683D00128B47 /* CustomImageViewController.m in Sources */,
-				72ACA53B193DE88F006B3B98 /* CountdownHelper.m in Sources */,
+				72ACA53B193DE88F006B3B98 /* CCDCountdownHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,7 +659,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72BF666619DB47DC0085022B /* TodayViewController.m in Sources */,
-				72BF667119DB480E0085022B /* CountdownHelper.m in Sources */,
+				72BF667119DB480E0085022B /* CCDCountdownHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,16 +681,14 @@
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A0AB659AFE9DF1FB3BC54F5 /* Pods-Christmas Countdown HD.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4M3M3GPP6G;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -730,7 +700,6 @@
 				);
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "Resources/Christmas_Countdown_HD-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -746,23 +715,20 @@
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2BA8CF36477FB215E7BC9165 /* Pods-Christmas Countdown HD.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4M3M3GPP6G;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Other Sources/ChristmasCountdownPrefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "Resources/Christmas_Countdown_HD-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -796,7 +762,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4M3M3GPP6G;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -812,7 +778,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "CountdownExtension/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hankinsoft.christmascountdown.$(PRODUCT_NAME:rfc1034identifier)";
@@ -840,7 +805,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4M3M3GPP6G;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -850,7 +815,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "CountdownExtension/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hankinsoft.christmascountdown.$(PRODUCT_NAME:rfc1034identifier)";
@@ -894,7 +858,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -936,7 +900,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

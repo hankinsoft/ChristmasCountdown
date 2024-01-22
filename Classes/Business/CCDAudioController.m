@@ -53,6 +53,16 @@
 	return self;
 } // End of init
 
+- (BOOL) musicEnabled
+{
+    if([NSUserDefaults.standardUserDefaults boolForKey: @"MusicEnabled"])
+    {
+        return true;
+    }
+    
+    return false;
+}
+
 - (void) restart
 {
 #if !TARGET_IPHONE_SIMULATOR
@@ -117,6 +127,11 @@
 	}
 	else
 	{
+        if(![self musicEnabled])
+        {
+            return;
+        }
+
 		// Start the playback
 		[player play];
 	}
@@ -210,7 +225,15 @@
 
 - (void) resume
 {
-    if(!playingCustomMusic) return;
+    if(![self musicEnabled])
+    {
+        return;
+    }
+
+    if(!playingCustomMusic)
+    {
+        return;
+    }
 
     //musicPlayer
     if(playbackTime != 0)
@@ -223,20 +246,19 @@
 
 - (void)appDidEnterBackground:(NSNotification *)notification {
     // Pause the music when the app enters the background
-    if (playingCustomMusic) {
+    if (playingCustomMusic)
+    {
         [musicPlayer pause];
-    } else if (player) {
+    }
+    else if (player)
+    {
         [player pause];
     }
 }
 
-- (void)appWillEnterForeground:(NSNotification *)notification {
-    // Resume the music when the app enters the foreground
-    if (playingCustomMusic) {
-        [musicPlayer play];
-    } else if (player) {
-        [player play];
-    }
+- (void) appWillEnterForeground:(NSNotification *)notification
+{
+    [self resume];
 }
 
 - (void) dealloc

@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AudioController.h"
+#import "CCDAudioController.h"
 
-//@class AudioController;
+//@class CCDAudioController;
 
 @class ChristmasImageViewController;
 @class ChristmasCounterViewController;
@@ -20,11 +20,11 @@
 
     IBOutlet ChristmasCounterViewController * viewController;
 
-	AudioController							* audioController;
+	CCDAudioController							* audioController;
     BOOL									rebuildNotifications;
 }
 
-@property (nonatomic, retain) AudioController					* audioController;
+@property (nonatomic, retain) CCDAudioController					* audioController;
 @property (nonatomic, assign) BOOL								rebuildNotifications;
 
 + (ChristmasCountdownAppDelegate*) instance;

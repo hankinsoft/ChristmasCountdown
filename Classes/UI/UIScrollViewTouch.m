@@ -7,11 +7,11 @@
 //
 
 #import "UIScrollViewTouch.h"
-#import "Snowflake.h"
+#import "CCDSnowflake.h"
 
 @interface UIScrollViewTouch()
 
-- (void)initSnowflakes;
+- (void) initSnowflakes;
 
 @end
 
@@ -35,7 +35,7 @@
 	for ( int i = 0; i < snowflakeCount; ++i )
 	{
 		// Create our snowflake and add it to our array
-		Snowflake * snowflake = [[Snowflake alloc] init];
+		CCDSnowflake * snowflake = [[CCDSnowflake alloc] init];
 		[snowflakes addObject: snowflake];
 		[self addSubview: snowflake];
         [self bringSubviewToFront: snowflake];
@@ -48,7 +48,7 @@
 	for ( int i = 0; i < [snowflakes count]; ++i )
 	{
 		// Update our timer
-		[(Snowflake*)[snowflakes objectAtIndex: i] update];
+		[(CCDSnowflake*)[snowflakes objectAtIndex: i] update];
 	}
 } // End of updateTimer
 
@@ -57,7 +57,7 @@
     // Delete all of our snowflakes
 	while ( [snowflakes count] > 0 )
 	{
-		Snowflake * snowflake = (Snowflake*)[snowflakes lastObject];
+		CCDSnowflake * snowflake = (CCDSnowflake*)[snowflakes lastObject];
         [snowflake removeFromSuperview];
         [snowflakes removeLastObject];
 	}

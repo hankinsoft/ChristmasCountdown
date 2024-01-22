@@ -1,14 +1,14 @@
 //
-//  CCCountdownHelper.m
+//  CCDCountdownHelper.m
 //  Christmas Countdown HD
 //
 //  Created by Kyle Hankinson on 2014-06-03.
 //
 //
 
-#import "CCCountdownHelper.h"
+#import "CCDCountdownHelper.h"
 
-@implementation CCCountdownHelper
+@implementation CCDCountdownHelper
 
 static NSDate * christmasDay;
 

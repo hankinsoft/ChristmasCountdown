@@ -9,8 +9,10 @@
 #import "ChristmasCountdownAppDelegate.h"
 
 #import "ChristmasCounterViewController.h"
-#import "AudioController.h"
-#import "CountdownHelper.h"
+#import "CCDAudioController.h"
+#import "CCDCountdownHelper.h"
+
+#import <UserNotifications/UserNotifications.h>
 
 @interface ChristmasCountdownAppDelegate (hidden)
 
@@ -27,7 +29,8 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (BOOL)          application: (UIApplication *) application
+didFinishLaunchingWithOptions: (NSDictionary *) launchOptions
 {
     // By default we do not want to rebuild notifications
     rebuildNotifications = NO;
@@ -43,21 +46,13 @@
 
 	// If the 'enableNotifications' key does not already exist, then we will create it with a 'yes' for the default.
 	if ( nil == [[NSUserDefaults standardUserDefaults] objectForKey: @"enableNotifications"] )
-	{
-		[[NSUserDefaults standardUserDefaults] setBool: YES forKey: @"enableNotifications"];
+    {
+        [[NSUserDefaults standardUserDefaults] setBool: YES forKey: @"enableNotifications"];
+        
         // Probably the first launch. We want to rebuild notifications and also give a reminder to the users, how to
-		// change settings, etc.
+        // change settings, etc.
         rebuildNotifications = YES;
-
-        UIAlertView *reminderAlert = [[UIAlertView alloc] initWithTitle: @"Don't Forget!"
-                                                       message: @"You can tap the info button to launch the settings screen, which allows you "
-                                      @"to change a variety of options including the snowflake colors and the background music.\r\n\r\nYou can also switch between backgrounds by sliding a finger on the main screen."
-                                                      delegate: self
-                                             cancelButtonTitle: @"OK"
-                                             otherButtonTitles: nil];
-
-        [reminderAlert show];
-	}
+    }
 
 	// If we do not have any defaults set
 	if ( 0 == [[NSUserDefaults standardUserDefaults] integerForKey:@"SnowflakeCount"] )
@@ -99,7 +94,7 @@
 
     
 	// Initialize our audio controller
-	audioController = [[AudioController alloc] init];
+	audioController = [[CCDAudioController alloc] init];
 
     NSLog(@"Window is: %0.0fx%0.0f", window.frame.size.width, window.frame.size.height);
     NSLog(@"View is: %0.0fx%0.0f", viewController.view.frame.size.width, viewController.view.frame.size.height);
@@ -116,9 +111,15 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
 	DLog ( @"Application became active!" );
-    DLog ( @"There are %lu notifications scheduled", [[[UIApplication sharedApplication] scheduledLocalNotifications] count] );
+
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    [center getPendingNotificationRequestsWithCompletionHandler:^(NSArray<UNNotificationRequest *> * _Nonnull requests) {
+        NSUInteger notificationsScheduled = (unsigned long)[requests count];
+        DLog(@"There are %lu notifications scheduled", notificationsScheduled);
+    }];
 
     [viewController enableCountdown];
+
     [audioController resume];
 } // End of applicationDidBecomeActive
 
@@ -147,7 +148,7 @@
 	{
         // Set our badge to be the number of days away from today (PLUS ONE so that it does not say 0 days, on the 24'th,
 		// when it is really 0 days, 15 hours, etc
-        [UIApplication sharedApplication].applicationIconBadgeNumber = [CountdownHelper daysAwayFromDate: [NSDate date]];
+        [UIApplication sharedApplication].applicationIconBadgeNumber = [CCDCountdownHelper daysAwayFromDate: [NSDate date]];
 	} // End of badge is enabled
 	else
 	{
@@ -161,90 +162,102 @@
     [viewController updateCustomImage];
 }
 
-- (void) updateNotifications
+- (void) queueNotifications
 {
-#define DAY	( 86400 )
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    BOOL enableNotifications = [[NSUserDefaults standardUserDefaults] boolForKey: @"enableNotifications"];
+    BOOL showBadge = [self isBadgeEnabled];
 
-    // Only rebuild the notifications, if we have to for some reason (settings toggled), OR (see blew)
-    if ( rebuildNotifications ||
-        (
-         // We have notifications enabled and there are less than 10 left
-         [[NSUserDefaults standardUserDefaults] boolForKey: @"enableNotifications"]
-         && [[[UIApplication sharedApplication] scheduledLocalNotifications] count] < 10 ) )
-    {
-        // No longer need to re-build notifications
-        rebuildNotifications = NO;
-        
-        // First, clear any notifications
-        [[UIApplication sharedApplication] cancelAllLocalNotifications];
-        
-        // If notifications are not enabled, then thats it. Do nothing else.
-        if ( ![[NSUserDefaults standardUserDefaults] boolForKey: @"enableNotifications"] )
-        {
-            return;
+    // First, clear any pending notifications
+    [center removeAllPendingNotificationRequests];
+    
+    // If notifications are not enabled, that's it. Do nothing else.
+    if (!enableNotifications) {
+        return;
+    }
+
+    // Calculate the start date for notifications
+    NSDate *now = [NSDate date];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:now];
+    
+    // Using our current year, set it to be Christmas day
+    NSDateComponents *christmasComponents = [[NSDateComponents alloc] init];
+    christmasComponents.year = [components year];
+    christmasComponents.month = 12; // December
+    christmasComponents.day = 25; // Christmas Day
+    
+    // Calculate the start date (1 day after Christmas)
+    NSDate *startDate = [calendar dateFromComponents:christmasComponents];
+    startDate = [startDate dateByAddingTimeInterval:24 * 60 * 60]; // Add 1 day
+    
+    // Get the current date again
+    now = [NSDate date];
+    
+    // Get the time interval between now and the start date
+    NSTimeInterval timeInterval = [startDate timeIntervalSinceDate:now];
+    
+    // Create up to 10 notifications
+    for (NSInteger i = 0; i < 10; i++) {
+        // If we wrap, then we need to re-calculate.
+        if (timeInterval < 0) {
+            timeInterval = 24 * 60 * 60; // 1 day
         }
         
-		// We need to make sure that if we are past december 25 but before Jan 1, to use the next year,
-		// so that we do not display -1, -2, etc days until christmas.
-		NSDateComponents *currentDateComponents = [[self gregorianCalendar] components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit ) fromDate: [NSDate date]];
+        NSString *countdownString = nil;
         
-		// Using our current year, set it to be christmas day
-		NSString *dateStr = [[NSString alloc] initWithFormat: @"%4ld%0.2ld%0.2ld",
-							 (long)[currentDateComponents year], (long)[currentDateComponents month], (long)[currentDateComponents day]];
+        if (timeInterval > 1) {
+            countdownString = [NSString stringWithFormat:@"There are %.0f Days Until Christmas.", timeInterval / (24 * 60 * 60)];
+        } else if (timeInterval == 1) {
+            countdownString = @"There is one day until Christmas.";
+        } else if (timeInterval == 0) {
+            countdownString = @"Merry Christmas!";
+        }
         
-		NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-		[dateFormat setDateFormat:@"yyyyMMdd"];
+        // Create a notification content
+        UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
+        content.body = countdownString;
+        content.sound = [UNNotificationSound defaultSound];
+        
+        // Create a notification trigger
+        UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:timeInterval repeats:NO];
+        
+        // Create a notification request
+        NSString *identifier = [NSString stringWithFormat:@"ChristmasCountdownNotification%d", (int)i];
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identifier content:content trigger:trigger];
+        
+        // Schedule the notification
+        [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"Error scheduling notification: %@", error);
+            }
+        }];
+        
+        DLog(@"Queued (%.0f)", timeInterval / (24 * 60 * 60));
+        
+        // Next day
+        timeInterval -= 24 * 60 * 60;
+    }
+}
 
-		// Get our date
-        NSDate * startDate = [[dateFormat dateFromString:dateStr] dateByAddingTimeInterval: DAY];
-
-		BOOL showBadge = [self isBadgeEnabled];
-        
-        // Get our days away (minus one to make up the fact it's sent at midnight)
-		NSInteger daysAway = [CountdownHelper daysAwayFromDate: startDate] - 1;
-        
-		// Create up to 65 notifications
-		for ( NSInteger i = [[[UIApplication sharedApplication] scheduledLocalNotifications] count];
-			 i < 100;
-			 ++i )
-		{
-            NSString * countdownString = nil;
-            
-            // If we wrap, then we weed to re-calculate.
-            if ( daysAway < 0 )
+- (void) updateNotifications
+{
+    // Only rebuild the notifications if necessary (settings toggled) or there are less than 10 left
+    if (rebuildNotifications)
+    {
+        [self queueNotifications];
+    }
+    else
+    {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        [center getPendingNotificationRequestsWithCompletionHandler:^(NSArray<UNNotificationRequest *> * _Nonnull requests) {
+            NSUInteger notificationsScheduled = (unsigned long)[requests count];
+            if(notificationsScheduled < 10)
             {
-                daysAway = [CountdownHelper daysAwayFromDate: startDate];
+                [self queueNotifications];
             }
-            
-            if ( daysAway > 1 )
-            {
-                countdownString = [NSString stringWithFormat: @"There are %ld Days Until Christmas.", (long)daysAway ];
-            }
-            else if ( 1 == daysAway )
-            {
-                countdownString = @"There is one day until Christmas.";
-            }
-            else if ( 0 == daysAway )
-            {
-                countdownString = @"Merry Christmas!";
-            }
-            
-			UILocalNotification * localNotification = [[UILocalNotification alloc] init];
-			[localNotification setFireDate: startDate];
-			[localNotification setAlertAction: nil];
-			[localNotification setAlertBody: countdownString];
-            
-			// Badge is always one extra day
-			[localNotification setApplicationIconBadgeNumber: ( showBadge ? daysAway : 0 )];
-            
-			[[UIApplication sharedApplication] scheduleLocalNotification: localNotification];
-            DLog ( @"Queued (%ld)", daysAway );
-
-			// Next day
-			startDate = [startDate dateByAddingTimeInterval: DAY];
-            daysAway--;
-		}
-	} // End of rebuildNotifications
+        }];
+    }
 } // End of updateNotifications
 
 static NSCalendar * gregorian = nil;
@@ -254,7 +267,7 @@ static NSCalendar * gregorian = nil;
 	{
 		if ( nil == gregorian )
 		{
-			gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
+            gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian];
 		} // End of gregorian calendar was nil
 	} // End of synchronized
 

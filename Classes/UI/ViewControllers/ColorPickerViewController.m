@@ -8,7 +8,7 @@
 
 #import "ChristmasCountdownAppDelegate.h"
 #import "ColorPickerViewController.h"
-#import "SettingsViewController.h"
+#import "CCDSettingsViewController.h"
 
 @implementation ColorPickerViewController
 
@@ -67,12 +67,6 @@
 	
 	// Release any cached data, images, etc that aren't in use.
 }
-
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-}
-
 
 #pragma mark Table view methods
 
@@ -175,7 +169,7 @@
 
     [colorTableView reloadData];
 
-    [SettingsViewController postSnowflakesNeedUpdate];
+    [CCDSettingsViewController postSnowflakesNeedUpdate];
 }
 
 @end

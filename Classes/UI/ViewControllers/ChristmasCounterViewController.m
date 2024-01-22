@@ -13,6 +13,15 @@
 #define CUSTOM_IMAGE_PAGE   4
 
 @interface ChristmasCounterViewController ()
+{
+    IBOutlet UIScrollViewTouch      * scrollView;
+
+    // Our info button
+    UIButton                        * infoButton;
+
+    CCDCountdownView                   * countdownView;
+    CCDPageControl                  * pageControl;
+}
 
 - (void)loadScrollViewWithPage:(int)page;
 - (void)scrollViewDidScroll:(UIScrollView *)sender;
@@ -23,9 +32,16 @@
 - (void) fadeUIIn;
 
 @property (nonatomic, retain) NSDate * lastUpdatedTime;
+
 @end
 
 @implementation ChristmasCounterViewController
+{
+    NSMutableArray      * viewControllers;
+
+    BOOL                timerEnabled;
+    NSDate              * lastUpdatedTime;
+}
 
 @synthesize lastUpdatedTime;
 /*
@@ -55,7 +71,7 @@
 
     scrollView.touchDelegate = self;
 
-    pageControl = [[PageControl alloc] initWithFrame: CGRectMake(0, self.view.bounds.size.height - 30, self.view.bounds.size.width, 20)];
+    pageControl = [[CCDPageControl alloc] initWithFrame: CGRectMake(0, self.view.bounds.size.height - 30, self.view.bounds.size.width, 20)];
     pageControl.numberOfPages = kNumberOfPages;
     pageControl.delegate = self;
     pageControl.translatesAutoresizingMaskIntoConstraints = false;
@@ -71,8 +87,7 @@
 	// If the SignerIdentity exists (aka, we are cracked)
 	if ([info objectForKey: @"SignerIdentity"] != nil) 
 	{
-		UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Cracked Version" message: @"Hello. I see you are using a cracked version of Christmas Countdown. If you like this application, please support me by purchasing it." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-		[alertView show];
+        [self showCrackedWarning];
 	}
 
     // view controllers are created lazily
@@ -114,7 +129,7 @@
 	}
 
 	// Create & add the countdown view
-	countdownView = [[CountdownView alloc] initWithFrame: CGRectZero];
+	countdownView = [[CCDCountdownView alloc] initWithFrame: CGRectZero];
 
 	// No user interaction
 	[countdownView setUserInteractionEnabled: NO];
@@ -144,6 +159,9 @@
     
     self.lastUpdatedTime = nil;
 
+    // Create our info button
+    [self createInfoButton];
+
     // Update once a second
     [NSTimer scheduledTimerWithTimeInterval: 1.0f
                                      target: self
@@ -156,6 +174,25 @@
                                                name: kSnowflakesNeedUpdate
                                              object: nil];
 } // End of viewDidLoad:
+
+- (void) showCrackedWarning
+{
+    UIAlertController *alertController = nil;
+    alertController = [UIAlertController alertControllerWithTitle:@"Cracked Version"
+                                                          message:@"Hello. I see you are using a cracked version of Christmas Countdown. If you like this application, please support me by purchasing it."
+                                                   preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle: @"OK"
+                                                       style: UIAlertActionStyleDefault
+                                                     handler: ^(UIAlertAction *action) {
+                                                         // Handle OK action
+                                                     }];
+
+    [alertController addAction:okAction];
+
+    // Present the alert from your view controller
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 
 - (void) dealloc
 {
@@ -176,13 +213,46 @@
     [super viewWillAppear: animated];
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear: animated];
+    [self showFirstLaunchInfo];
+}
+
+- (void) showFirstLaunchInfo
+{
+    if([NSUserDefaults.standardUserDefaults boolForKey: @"ShownFirstLaunchInfo"])
+    {
+        return;
+    }
+
+    [NSUserDefaults.standardUserDefaults setBool: YES
+                                          forKey: @"ShownFirstLaunchInfo"];
+
+    UIAlertController *reminderAlertController = nil;
+    reminderAlertController = [UIAlertController alertControllerWithTitle: @"Don't Forget!"
+                                                                  message: @"You can switch between backgrounds by sliding a finger on the main screen.\r\n\r\nYou can tap the info button to open the settings screen, which allows you to change a variety of options including the snowflake colors and the background music."
+                                                           preferredStyle: UIAlertControllerStyleAlert];
+
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle: @"OK"
+                                                       style: UIAlertActionStyleDefault
+                                                     handler: nil];
+
+    [reminderAlertController addAction: okAction];
+
+    // Present the alert controller on the root view controller
+    [self presentViewController: reminderAlertController
+                       animated: YES
+                     completion: nil];
+}
+
 - (void) viewWillDisappear: (BOOL) animated
 {
     [[UIApplication sharedApplication] setStatusBarHidden: NO];
     [super viewWillDisappear: animated];
 }
 
-#pragma mark CountdownView
+#pragma mark CCDCountdownView
 
 - (void) disableCountdown
 {
@@ -196,9 +266,46 @@
     timerEnabled = YES;
 }
 
+- (void)createInfoButton {
+    infoButton = [UIButton buttonWithType:UIButtonTypeSystem];
+
+    // Set the button's frame
+    infoButton.frame = CGRectZero;
+
+    // Set the button's background color
+    UIColor *buttonColor = [UIColor colorWithRed:50/255.0 green:79/255.0 blue:133/255.0 alpha:1.0];
+
+    // Use the 'info.circle' SF Symbol as the button's image
+    UIImage *infoImage = [UIImage systemImageNamed:@"info.circle"];
+    [infoButton setImage:infoImage forState:UIControlStateNormal];
+
+    // Optional: Adjust the image's rendering mode if you want to apply the button's tint color to the image
+    [infoButton setTintColor: buttonColor];
+
+    // Set the button's title color
+    [infoButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+
+    // Add action for tapping the button
+    [infoButton addTarget: self
+                   action: @selector(onInfo:)
+         forControlEvents: UIControlEventTouchUpInside];
+
+    // Add the button to the view
+    [self.view addSubview: infoButton];
+    infoButton.translatesAutoresizingMaskIntoConstraints = NO;
+
+    // Set button constraints
+    [infoButton.widthAnchor constraintEqualToConstant: 16].active = YES;
+    [infoButton.heightAnchor constraintEqualToConstant: 16].active = YES;
+    [infoButton.leftAnchor constraintEqualToAnchor: self.view.leftAnchor
+                                          constant: 8].active = YES;
+    [infoButton.bottomAnchor constraintEqualToAnchor: self.view.bottomAnchor
+                                            constant: -8].active = YES;
+}
+
 #pragma mark UIScrollView
 
-- (void)loadScrollViewWithPage:(int)page
+- (void) loadScrollViewWithPage: (int) page
 {
     if (page < 0) return;
     if (page >= kNumberOfPages) return;
@@ -255,7 +362,7 @@
     [self fadeUIIn];
 }
 
-- (void)pageControlPageDidChange:(PageControl *)aPageControl
+- (void)pageControlPageDidChange:(CCDPageControl *)aPageControl
 {
 	// Set our page
 	CGFloat pageWidth = scrollView.frame.size.width;
@@ -280,12 +387,6 @@
 
     int scrollViewY = 0;
 
-    // Only show ads in portrait
-    if(bannerIsVisible && ( self.interfaceOrientation == UIInterfaceOrientationPortrait || self.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown ) )
-    {
-        scrollViewY -= [adView frame].size.height;
-    }
-
 	if ( self.interfaceOrientation == UIInterfaceOrientationPortrait || self.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown )
 	{
 		// Size adjusted for navigation bar
@@ -293,13 +394,6 @@
 
 		// Reposition the countdown view
 		countdownView.frame = CGRectMake ( 0, 70, [[UIScreen mainScreen] applicationFrame].size.width, 300 );
-
-        if(bannerIsVisible)
-        {
-            CGRect newFrame = [adView frame];
-            newFrame.origin.y = self.view.frame.size.height - [adView frame].size.height;
-            [adView setFrame: newFrame];
-        }
 	}
     // Vertical
 	else
@@ -428,82 +522,34 @@
 } // End of updateCustomImage
 
 #pragma mark -
-#pragma mark ADBannerView
 
-- (void)bannerViewDidLoadAd:(ADBannerView *)banner
+- (void) didReceiveMemoryWarning
 {
-	DLog ( @"Banner did load" );
-
-	if (!bannerIsVisible)
-	{
-		DLog ( @"Was not visible" );
-
-        // Only display the banner if we are in portrait
-        if ( ( self.interfaceOrientation == UIInterfaceOrientationPortrait || self.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown ) )
-        {
-            [UIView beginAnimations:@"animateAdBannerOn" context:NULL];
-
-            CGRect newFrame = banner.frame;
-            newFrame.origin.y = self.view.frame.size.height - banner.frame.size.height;
-            banner.frame = newFrame;
-
-            CGRect scrollFrame = scrollView.frame;
-            scrollFrame.origin.y = -banner.frame.size.height;
-            scrollView.frame = scrollFrame;
-
-            [UIView commitAnimations];
-        }
-		bannerIsVisible = YES;
-	}
-}
-
-- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
-{
-	DLog ( @"Failed to load the banner: %@", [error localizedDescription] );
-
-	if (bannerIsVisible)
-	{
-		DLog ( @"And was visible" );
-		[UIView beginAnimations:@"animateAdBannerOff" context:NULL];
-
-		// banner is visible and we move it out of the screen, due to connection issue
-		banner.frame = CGRectOffset(banner.frame, 0, self.view.frame.size.height + 50);
-
-		CGRect scrollFrame = scrollView.frame;
-        scrollFrame.origin.y = 0;
-		scrollView.frame = scrollFrame;
-
-		[UIView commitAnimations];
-		bannerIsVisible = NO;
-	}
-}
-
-#pragma mark -
-
-- (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
 	
 	// Release any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-}
-
-- (IBAction) onInfo: (id) sender
+- (void) showSettings
 {
-    SettingsViewController * settingsViewController = [[SettingsViewController alloc] initWithNibName: @"SettingsViewController" bundle: [NSBundle mainBundle]];
-    
+    CCDSettingsViewController * settingsViewController = [[CCDSettingsViewController alloc] initWithNibName: @"CCDSettingsViewController" bundle: [NSBundle mainBundle]];
+
     [settingsViewController setChristmasCounterViewController: self];
     UINavigationController *tableNavController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
     
-    tableNavController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    tableNavController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     [self presentViewController: tableNavController
                        animated: YES
                      completion: ^{}];
 }
+
+- (IBAction) onInfo: (id) sender
+{
+    [self showSettings];
+}
+
+#if OLD_CODE
 
 - (UIImage*) screenshot
 {
@@ -516,50 +562,75 @@
 	return viewImage;
 }
 
+#else
+
+- (UIImage *)screenshot {
+    // Get the screen size
+    CGRect screenSize = [UIScreen mainScreen].bounds;
+
+    // Assuming the status bar height is standard across devices (usually 20 points)
+    // Adjust this value if needed for specific devices
+    CGFloat statusBarHeight = 20.0;
+
+    // Define the new image context size, excluding the status bar
+    CGSize contextSize = CGSizeMake(screenSize.size.width, screenSize.size.height - statusBarHeight);
+
+    // Begin new image context
+    UIGraphicsBeginImageContext(contextSize);
+
+    // Calculate the area to capture
+    CGRect captureRect = CGRectMake(0, statusBarHeight, screenSize.size.width, screenSize.size.height - statusBarHeight);
+
+    // Render the view to the image context
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(context, -captureRect.origin.x, -captureRect.origin.y);
+    [self.view.layer renderInContext:context];
+
+    // Get the image
+    UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    return viewImage;
+}
+
+#endif
+
 - (void) singleTapped
 {
-    NSLog(@"Single tapped");
     [self fadeUIIn];
 }
 
-- (void)doubleTapped
+- (void) doubleTapped
 {
-	SettingsViewController * settingsViewController = [[SettingsViewController alloc] initWithNibName: @"SettingsViewController" bundle: [NSBundle mainBundle]];
-        
-	[settingsViewController setChristmasCounterViewController: self];
+    [self showSettings];
+} // End of doubleTapped
 
-	UINavigationController *tableNavController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
-        
-	tableNavController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentModalViewController:tableNavController animated:YES];
-}
-
-- (void)updateControls:(id)sender
+- (void) updateControls: (id) sender
 {
 	if ( timerEnabled )
 	{
         // Try to fade out
 		[self fadeUIOut];
 	}
-}
+} // End of updateControls:
 
 - (void) fadeUIOut
 {
-    if(nil == self.lastUpdatedTime) return;
+    if (nil == self.lastUpdatedTime) return;
 
     // Check to see if we should fade out
-    NSTimeInterval secondsElapsed =     [[NSDate date] timeIntervalSinceDate: self.lastUpdatedTime];
-    if(secondsElapsed < 4 || infoButton.alpha != 1.0) return;
+    NSTimeInterval secondsElapsed = [[NSDate date] timeIntervalSinceDate:self.lastUpdatedTime];
+    if (secondsElapsed < 4 || infoButton.alpha != 1.0) return;
 
-    // End of fade UI
-    [UIView beginAnimations:nil context:nil];
-	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-	[UIView setAnimationDuration:0.50];  //.25 looks nice as well.
-
-    // Fade the info button
-	infoButton.alpha = 0.0;
-    pageControl.alpha = 0.0;
-	[UIView commitAnimations];
+    // Fade out the UI
+    [UIView animateWithDuration:0.50 // .25 also looks nice
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         self->infoButton.alpha = 0.0;
+                         self->pageControl.alpha = 0.0;
+                     }
+                     completion:nil];
 }
 
 - (void) fadeUIIn
@@ -567,15 +638,15 @@
     // Update is now
     self.lastUpdatedTime = [NSDate date];
 
-    // End of fade UI
-    [UIView beginAnimations:nil context:nil];
-	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-	[UIView setAnimationDuration:0.50];  //.25 looks nice as well.
-
-    // Fade the info button
-	infoButton.alpha = 1.0;
-    pageControl.alpha = 1.0;
-	[UIView commitAnimations];
+    // Fade in the UI
+    [UIView animateWithDuration:0.50 // .25 also looks nice
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         self->infoButton.alpha = 1.0;
+                         self->pageControl.alpha = 1.0;
+                     }
+                     completion:nil];
 }
 
 @end

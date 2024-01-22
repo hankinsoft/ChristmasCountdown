@@ -1,16 +1,16 @@
 //
-//  CountdownView.m
+//  CCDCountdownView.m
 //  ChristmasCounter
 //
 //  Created by Kyle Hankinson on 04/08/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "CountdownView.h"
+#import "CCDCountdownView.h"
 #import "ChristmasCountdownAppDelegate.h"
-#import "CountdownHelper.h"
+#import "CCDCountdownHelper.h"
 
-@interface CountdownView ()
+@interface CCDCountdownView ()
 
 - (void)updateTimer:(id)sender;
 
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation CountdownView
+@implementation CCDCountdownView
 
 @synthesize countdownEnabled;
 
@@ -34,7 +34,7 @@
 		// We need to make sure that if we are past december 25 but before Jan 1, to use the next year,
 		// so that we do not display -1, -2, etc days until christmas.
 		NSDateComponents *currentDateComponents =
-		[[[ChristmasCountdownAppDelegate instance] gregorianCalendar] components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit ) fromDate: [NSDate date]];
+        [[[ChristmasCountdownAppDelegate instance] gregorianCalendar] components:( NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay ) fromDate: [NSDate date]];
 		
 		NSInteger year = [currentDateComponents year];
 		if ( 12 == [currentDateComponents month] && 25 < [currentDateComponents day] )
@@ -79,7 +79,7 @@
 + (NSString*) countdownStringWithNewlines: (BOOL) enableNewline
 {
 	NSDateComponents *currentDateComponents =
-	[[[ChristmasCountdownAppDelegate instance] gregorianCalendar] components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit ) fromDate: [NSDate date]];
+	[[[ChristmasCountdownAppDelegate instance] gregorianCalendar] components:( NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay ) fromDate: [NSDate date]];
 	
 	NSString * countdownString;
 	
@@ -91,7 +91,7 @@
 	else
 	{
 		// Figure out how far away it is
-		NSTimeInterval timeInterval = [CountdownHelper.christmasDay timeIntervalSinceNow];
+		NSTimeInterval timeInterval = [CCDCountdownHelper.christmasDay timeIntervalSinceNow];
 
 		int days    = floor(timeInterval / 86400);
 		int hours   = (int)floor(timeInterval / 3600)%24;
@@ -130,90 +130,68 @@
 	// Return our countdownString
 	return countdownString;
 } // End of countdownStringWithNewlines
-
-- (void)drawRect:(CGRect)rect
+- (UIColor *) colorForString: (NSString *) colorString
 {
-	CGContextRef contextRef = UIGraphicsGetCurrentContext();
-    
-	// Clear the contents
+    NSDictionary *colorMap = @{
+        @"White": [UIColor whiteColor],
+        @"Black": [UIColor blackColor],
+        @"Pink": [UIColor colorWithRed:1.0 green:0.0 blue:0.5 alpha:1.0],
+        @"Red": [UIColor redColor],
+        @"Blue": [UIColor blueColor],
+        @"Yellow": [UIColor colorWithRed:251/255.0 green:236/255.0 blue:93/255.0 alpha:1.0],
+        @"Green": [UIColor greenColor],
+        @"Purple": [UIColor colorWithRed:141/255.0 green:50/255.0 blue:150/255.0 alpha:1.0]
+    };
+
+    return colorMap[colorString];
+}
+
+- (void) drawRect: (CGRect) rect
+{
+    CGContextRef contextRef = UIGraphicsGetCurrentContext();
+
+    // Clear the contents
     CGContextClearRect(contextRef, rect);
-    
-    int red, green, blue;
-    
-    NSString * colorString = [[NSUserDefaults standardUserDefaults] stringForKey: @"FontColor"];
-	// White
-	if ( [colorString isEqualToString: @"White"] )
-	{
-		// Set our color
-		red = 255;
-		green = 255;
-		blue = 255;
-	}
-	else if ( [colorString isEqualToString: @"Black"] )
-	{
-		// Set our color
-		red   = 0;
-		green = 0;
-		blue  = 0;
-	}
-	else if ( [colorString isEqualToString: @"Pink"] )
-	{
-		red   = 255;
-		green = 0;
-        blue  = 128;
-	}
-	else if ( [colorString isEqualToString: @"Red"] )
-	{
-		red   = 255;
-		green = 0;
-		blue  = 0;
-	} // End of Blue
-	else if ( [colorString isEqualToString: @"Blue"] )
-	{
-		red   = 0;
-		green = 0;
-		blue  = 255;
-	} // End of Blue
-	else if ( [colorString isEqualToString: @"Yellow"] )
-	{
-		red = 251;
-		green = 236;
-		blue = 93;
-	} // End of Yellow
-	else if ( [colorString isEqualToString: @"Green"] )
-	{
-        red   = 0;
-		green = 255;
-		blue  = 0;
-	} // End of Green
-	else if ( [colorString isEqualToString: @"Purple"] )
-	{
-		red   = 141;
-		green = 50;
-        blue  = 150;
-	} // End of Green
-    else
-    {
+
+    NSString *colorString = [[NSUserDefaults standardUserDefaults] stringForKey:@"FontColor"];
+    UIColor *textColor = [self colorForString:colorString];
+
+    if (!textColor) {
         NSLog(@"Unknown color: %@", colorString);
+        return;
     }
 
-	// Draw our snowflake
-    CGContextSetRGBFillColor(contextRef, red/255.0, green/255., blue/255.0, 1.0f);
+    float fontSize = [ChristmasCountdownAppDelegate iPad] ? 20.0f : 15.0f;
 
-    float fontSize = 0;
-    if([ChristmasCountdownAppDelegate iPad])
-    {
-        fontSize = 20.0f;
-    }
-    else
-    {
-        fontSize = 15.0f;
+    NSMutableDictionary *attributes = @{
+        NSFontAttributeName: [UIFont fontWithName: @"zapfino" size: fontSize],
+        NSForegroundColorAttributeName: textColor
+    }.mutableCopy;
+
+    NSString *countdownString = [CCDCountdownView countdownStringWithNewlines:YES];
+
+    // Add a BOOL variable to enable/disable the letter border
+    BOOL enableLetterBorder = NO; // Set this to YES to enable the border
+
+    if (enableLetterBorder) {
+        attributes = @{
+            NSFontAttributeName: [UIFont fontWithName:@"zapfino" size:fontSize],
+            NSForegroundColorAttributeName: textColor,
+            NSStrokeWidthAttributeName: @-2.0, // This negative value creates a border around the lettering
+            NSStrokeColorAttributeName: [UIColor blackColor] // Border color is black
+        }.mutableCopy;
     }
 
-    [[CountdownView countdownStringWithNewlines: YES] drawInRect: rect
-                                                        withFont: [UIFont fontWithName: @"zapfino" size: fontSize]
-                                                   lineBreakMode: UILineBreakModeWordWrap
-                                                       alignment: UITextAlignmentCenter];
+    CGSize textSize = [countdownString sizeWithAttributes:attributes];
+    CGRect textRect = CGRectMake((rect.size.width - textSize.width) / 2, (rect.size.height - textSize.height) / 2, textSize.width, textSize.height);
+
+    // Center the text within the view
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.alignment = NSTextAlignmentCenter;
+
+    attributes[NSParagraphStyleAttributeName] = paragraphStyle;
+
+    [countdownString drawInRect:textRect withAttributes:attributes];
 }
 
 @end

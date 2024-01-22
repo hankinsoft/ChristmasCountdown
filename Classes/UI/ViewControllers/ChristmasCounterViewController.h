@@ -7,32 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Snowflake.h"
-#import "CountdownView.h"
-#import "SettingsViewController.h"
+#import "CCDSnowflake.h"
+#import "CCDCountdownView.h"
+#import "CCDSettingsViewController.h"
 #import "ChristmasImageViewController.h"
 #import <iAd/iAd.h>
 #import "UIScrollViewTouch.h"
-#import "PageControl.h"
+#import "CCDPageControl.h"
 
-@interface ChristmasCounterViewController : UIViewController <UIScrollViewDelegate, ADBannerViewDelegate, UIScrollViewTouchDelegate, PageControlDelegate>
-{
-	CountdownView		* countdownView;
-
-    IBOutlet UIScrollViewTouch *scrollView;
-    NSMutableArray *viewControllers;
-
-    // Our info button
-    IBOutlet UIButton   * infoButton;
-    PageControl         * pageControl;
-
-	// Advertisement stuff
-	id                  adView;
-	BOOL                bannerIsVisible;
-
-    BOOL                timerEnabled;
-    NSDate              * lastUpdatedTime;
-}
+@interface ChristmasCounterViewController : UIViewController <UIScrollViewDelegate, UIScrollViewTouchDelegate, PageControlDelegate>
 
 - (void) disableCountdown;
 - (void) enableCountdown;
