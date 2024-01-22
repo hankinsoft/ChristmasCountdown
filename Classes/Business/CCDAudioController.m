@@ -1,15 +1,24 @@
 //
-//  AudioController.m
+//  CCDAudioController.m
 //  ChristmasCountdown
 //
 //  Created by Kyle Hankinson on 09-12-22.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "AudioController.h"
+#import "CCDAudioController.h"
 
 
-@implementation AudioController
+@implementation CCDAudioController
+{
+    AVAudioPlayer                    * player;
+    MPMusicPlayerController            * musicPlayer;
+    bool                            playingCustomMusic;
+    
+    NSTimeInterval                  playbackTime;
+
+    NSNumber                        * mediaItemPropertyPersistentID;
+}
 
 @synthesize playingCustomMusic, musicPlayer, mediaItemPropertyPersistentID;
 
@@ -19,7 +28,8 @@
 	if ( 0 == [[[NSUserDefaults standardUserDefaults] stringForKey:@"Music"] length] )
 	{
 		// Default our song to be jingle-bells
-		[[NSUserDefaults standardUserDefaults] setObject: @"Jingle Bells" forKey:@"Music"];
+		[[NSUserDefaults standardUserDefaults] setObject: @"Jingle Bells"
+                                                  forKey: @"Music"];
 	}
 
 	if ( self = [super init] )
@@ -27,6 +37,18 @@
 		// Restart our song
 		[self restart];
 	}
+
+    // Register for the 'enter background' notification
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(appDidEnterBackground:)
+                                                 name:UIApplicationDidEnterBackgroundNotification
+                                               object:nil];
+
+    // Register for the 'enter foreground' notification
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(appWillEnterForeground:)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
 
 	return self;
 } // End of init
@@ -72,7 +94,7 @@
         player = nil;
 	}
 
-	NSString *resourcePath = [AudioController pathForAudio: [[NSUserDefaults standardUserDefaults] stringForKey:@"Music"]];
+	NSString *resourcePath = [CCDAudioController pathForAudio: [[NSUserDefaults standardUserDefaults] stringForKey:@"Music"]];
 	DLog(@"Path to play: %@", resourcePath);
     if(nil == resourcePath)
     {
@@ -100,7 +122,7 @@
 	}
 }
 
-- (void) setSong:(NSString*)songName
+- (void) setSong: (NSString*) songName
 {
 	// Update our music value
 	[[NSUserDefaults standardUserDefaults] setObject: songName forKey:@"Music"];
@@ -112,10 +134,11 @@
 	mediaItemPropertyPersistentID = nil;
 }
 
-- (void) setSongMediaItem:(MPMediaItem*)mediaItem
+- (void) setSongMediaItem: (MPMediaItem*) mediaItem
 {
 	// Clear our music item
-	[[NSUserDefaults standardUserDefaults] setObject: nil forKey:@"Music"];
+	[[NSUserDefaults standardUserDefaults] setObject: nil
+                                              forKey: @"Music"];
 	// Get our media item property persistent id
 	mediaItemPropertyPersistentID = [mediaItem valueForProperty: MPMediaItemPropertyPersistentID];
 	// Set our mediaItem
@@ -196,6 +219,30 @@
     }
 
     [self.musicPlayer play];
+}
+
+- (void)appDidEnterBackground:(NSNotification *)notification {
+    // Pause the music when the app enters the background
+    if (playingCustomMusic) {
+        [musicPlayer pause];
+    } else if (player) {
+        [player pause];
+    }
+}
+
+- (void)appWillEnterForeground:(NSNotification *)notification {
+    // Resume the music when the app enters the foreground
+    if (playingCustomMusic) {
+        [musicPlayer play];
+    } else if (player) {
+        [player play];
+    }
+}
+
+- (void) dealloc
+{
+    // Unregister all notifications for this object
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

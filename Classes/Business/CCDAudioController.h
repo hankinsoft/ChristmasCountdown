@@ -1,5 +1,5 @@
 //
-//  AudioController.h
+//  CCDAudioController.h
 //  ChristmasCountdown
 //
 //  Created by Kyle Hankinson on 09-12-22.
@@ -10,16 +10,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface AudioController : NSObject
-{
-	AVAudioPlayer					* player;
-	MPMusicPlayerController			* musicPlayer;
-	bool							playingCustomMusic;
-    
-    NSTimeInterval                  playbackTime;
-
-	NSNumber						* mediaItemPropertyPersistentID;
-}
+@interface CCDAudioController : NSObject
 
 + (NSString*) pathForAudio: (NSString*) songName;
 - (id) init;

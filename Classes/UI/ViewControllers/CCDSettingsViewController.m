@@ -549,11 +549,6 @@ static NSString *SettingsCellIdentifier = @"SettingsCell";
                              completion: ^{}];
 } // End of settingsViewDone
 
-- (void)viewDidUnload {
-    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
-}
-
 #pragma mark -
 #pragma mark MFMailComposeViewControllerDelegate
 
