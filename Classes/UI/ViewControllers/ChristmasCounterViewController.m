@@ -150,7 +150,7 @@
                                                 constant: 20.0f].active = YES;
     }
 
-    [countdownView.heightAnchor constraintEqualToConstant: 200.0f].active = YES;
+    [countdownView.heightAnchor constraintEqualToConstant: 240.0f].active = YES;
 
     // Init our timer
     [scrollView initTimer];
@@ -295,12 +295,11 @@
     infoButton.translatesAutoresizingMaskIntoConstraints = NO;
 
     // Set button constraints
-    [infoButton.widthAnchor constraintEqualToConstant: 16].active = YES;
-    [infoButton.heightAnchor constraintEqualToConstant: 16].active = YES;
-    [infoButton.leftAnchor constraintEqualToAnchor: self.view.leftAnchor
-                                          constant: 8].active = YES;
-    [infoButton.bottomAnchor constraintEqualToAnchor: self.view.bottomAnchor
-                                            constant: -8].active = YES;
+    [infoButton.widthAnchor constraintEqualToConstant: 20].active = YES;
+    [infoButton.heightAnchor constraintEqualToConstant: 20].active = YES;
+    [infoButton.leftAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.leftAnchor
+                                          constant: 20].active = YES;
+    [infoButton.centerYAnchor constraintEqualToAnchor: pageControl.centerYAnchor].active = YES;
 }
 
 #pragma mark UIScrollView

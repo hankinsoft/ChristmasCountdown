@@ -167,12 +167,14 @@ didFinishLaunchingWithOptions: (NSDictionary *) launchOptions
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     BOOL enableNotifications = [[NSUserDefaults standardUserDefaults] boolForKey: @"enableNotifications"];
     BOOL showBadge = [self isBadgeEnabled];
+    (void) showBadge;
 
     // First, clear any pending notifications
     [center removeAllPendingNotificationRequests];
     
     // If notifications are not enabled, that's it. Do nothing else.
-    if (!enableNotifications) {
+    if (!enableNotifications)
+    {
         return;
     }
 
@@ -220,14 +222,16 @@ didFinishLaunchingWithOptions: (NSDictionary *) launchOptions
         content.sound = [UNNotificationSound defaultSound];
         
         // Create a notification trigger
-        UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:timeInterval repeats:NO];
+        UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval: timeInterval
+                                                                                                        repeats: NO];
         
         // Create a notification request
         NSString *identifier = [NSString stringWithFormat:@"ChristmasCountdownNotification%d", (int)i];
         UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identifier content:content trigger:trigger];
         
         // Schedule the notification
-        [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+        [center addNotificationRequest: request
+                 withCompletionHandler: ^(NSError * _Nullable error) {
             if (error) {
                 NSLog(@"Error scheduling notification: %@", error);
             }

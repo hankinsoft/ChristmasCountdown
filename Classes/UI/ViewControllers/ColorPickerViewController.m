@@ -9,6 +9,7 @@
 #import "ChristmasCountdownAppDelegate.h"
 #import "ColorPickerViewController.h"
 #import "CCDSettingsViewController.h"
+#import "CCDUnlockHelper.h"
 
 @implementation ColorPickerViewController
 
@@ -70,7 +71,8 @@
 
 #pragma mark Table view methods
 
-- (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (NSString*) tableView: (UITableView *) tableView
+titleForHeaderInSection: (NSInteger) section
 {
     if(nil == holidayArray)
     {
@@ -109,8 +111,32 @@
     return holidayArray.count;
 }
 
+- (BOOL) isIndexPathLocked: (NSIndexPath*) indexPath
+{
+    if(CCDUnlockHelper.isUnlocked)
+    {
+        return NO;
+    } // End of our indexPath is locked
+
+    if(0 == indexPath.section)
+    {
+        if(NSOrderedSame == [generalArray[indexPath.row] caseInsensitiveCompare: @"rainbow"])
+        {
+            return YES;
+        }
+    }
+    else
+    {
+        // This is a <other holiday> color. We are locked.
+        return YES;
+    }
+
+    return NO;
+}
+
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *) tableView: (UITableView *)tableView
+          cellForRowAtIndexPath: (NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     
@@ -119,6 +145,9 @@
 	{
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+
+    // Check if we are locked
+    BOOL locked = [self isIndexPathLocked: indexPath];
 
     NSArray * targetArray;
     if(0 == indexPath.section)
@@ -130,26 +159,49 @@
         targetArray = holidayArray;
     }
 
-	// Grab the name of the cell from the array
-	[cell.textLabel setText: (NSString*)[targetArray objectAtIndex: indexPath.row]];
+    NSString * colorName = (NSString*)[targetArray objectAtIndex: indexPath.row];
 
-	// If this is our selected color, then checkmark it
-	if ( [[[NSUserDefaults standardUserDefaults] stringForKey: property] isEqual: [[cell textLabel] text]] )
-	{
-		[cell setAccessoryType: UITableViewCellAccessoryCheckmark];
-	}
+	// Grab the name of the cell from the array
+	[cell.textLabel setText: colorName];
+
+    if(locked)
+    {
+        UIImage *image = [UIImage systemImageNamed: @"lock"];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage: image];
+        cell.accessoryView = imageView;
+    } // End of we are locked
     else
     {
-		[cell setAccessoryType: UITableViewCellAccessoryNone];
+        cell.accessoryView = nil;
+
+        // If this is our selected color, then checkmark it
+        if ( [[[NSUserDefaults standardUserDefaults] stringForKey: property] isEqual: [[cell textLabel] text]] )
+        {
+            [cell setAccessoryType: UITableViewCellAccessoryCheckmark];
+        }
+        else
+        {
+            [cell setAccessoryType: UITableViewCellAccessoryNone];
+        }
     }
 
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)      tableView: (UITableView *) tableView
+didSelectRowAtIndexPath: (NSIndexPath *) indexPath
 {
 	// Deselect the row
-	[tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
+	[tableView deselectRowAtIndexPath: [tableView indexPathForSelectedRow]
+                             animated: YES];
+
+    // Check if we are locked
+    BOOL locked = [self isIndexPathLocked: indexPath];
+    if(locked)
+    {
+        [CCDUnlockHelper displayUnlockPopup];
+        return;
+    } // End of we are locked
 
     NSArray * targetArray;
     if(0 == indexPath.section)

@@ -16,19 +16,43 @@
 
 @synthesize slider;
 
-- (id)initWithStyle:(UITableViewCellStyle)style
-    reuseIdentifier:(NSString *)reuseIdentifier
+- (id) initWithStyle: (UITableViewCellStyle) style
+     reuseIdentifier: (NSString *) reuseIdentifier
 {
     if (self = [super initWithStyle: style
                     reuseIdentifier: reuseIdentifier])
 	{
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+
 		slider = [[UISlider alloc] initWithFrame: CGRectMake(150, 13, 150, 10)];
-		[self addSubview: slider];
+
+        // Disable autoresizing mask translation
+        slider.translatesAutoresizingMaskIntoConstraints = NO;
+
+        // Add the slider to the cell's content view
+        [self.contentView addSubview:slider];
+
+        // Set constraints
+        [self setupSliderConstraints];
     }
 
     return self;
 }
 
+- (void) setupSliderConstraints
+{
+    // Constraints for the slider
+    [NSLayoutConstraint activateConstraints:@[
+        // Horizontal position, 150 points from leading margin
+        [slider.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor constant: -20],
+        // Vertical centering in the cell
+        [slider.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor],
+        // Set the slider width
+        [slider.widthAnchor constraintEqualToConstant:150],
+        // Optional: Set the slider height
+        // [slider.heightAnchor constraintEqualToConstant:10],
+    ]];
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

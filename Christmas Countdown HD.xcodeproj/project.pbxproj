@@ -27,6 +27,8 @@
 		725354B51474683D00128B47 /* CustomImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 725354B31474683D00128B47 /* CustomImageViewController.xib */; };
 		7254316B2B5EA0C10003C150 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7254316A2B5EA0C10003C150 /* MBProgressHUD.m */; };
 		7254316D2B5EB9680003C150 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7254316C2B5EB9680003C150 /* Launch Screen.storyboard */; };
+		725431702B5EE1990003C150 /* CCDUnlockHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7254316F2B5EE1990003C150 /* CCDUnlockHelper.m */; };
+		725431732B5EF6380003C150 /* UITableViewSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 725431722B5EF6380003C150 /* UITableViewSwitchCell.m */; };
 		7293A1D8140A7D7B009BCA82 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7293A1D7140A7D7B009BCA82 /* MainWindow.xib */; };
 		7293A1E0140A8CCE009BCA82 /* ChristmasCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7293A1DE140A8CCE009BCA82 /* ChristmasCounterViewController.m */; };
 		7293A1E1140A8CCE009BCA82 /* ChristmasCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7293A1DF140A8CCE009BCA82 /* ChristmasCounterViewController.xib */; };
@@ -79,7 +81,6 @@
 		72FAFB4911E27D480043D496 /* CCDCountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FAFB4611E27D480043D496 /* CCDCountdownView.m */; };
 		72FAFB4A11E27D480043D496 /* CCDSnowflake.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FAFB4811E27D480043D496 /* CCDSnowflake.m */; };
 		72FAFB9011E280E40043D496 /* Jingle Bells.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 72FAFB8C11E280E40043D496 /* Jingle Bells.mp3 */; };
-		72FAFC1F11E2865F0043D496 /* UITableViewPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FAFC1C11E2865F0043D496 /* UITableViewPickerCell.m */; };
 		72FAFC2011E2865F0043D496 /* UITableViewSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FAFC1E11E2865F0043D496 /* UITableViewSliderCell.m */; };
 		72FAFC5B11E28ABF0043D496 /* ColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FAFC5611E28ABF0043D496 /* ColorPickerViewController.m */; };
 		72FAFC5C11E28ABF0043D496 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72FAFC5711E28ABF0043D496 /* ColorPickerViewController.xib */; };
@@ -150,6 +151,10 @@
 		725431692B5EA0C10003C150 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		7254316A2B5EA0C10003C150 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		7254316C2B5EB9680003C150 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		7254316E2B5EE1990003C150 /* CCDUnlockHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCDUnlockHelper.h; sourceTree = "<group>"; };
+		7254316F2B5EE1990003C150 /* CCDUnlockHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCDUnlockHelper.m; sourceTree = "<group>"; };
+		725431712B5EF6380003C150 /* UITableViewSwitchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITableViewSwitchCell.h; sourceTree = "<group>"; };
+		725431722B5EF6380003C150 /* UITableViewSwitchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITableViewSwitchCell.m; sourceTree = "<group>"; };
 		727F7285163337A600E92024 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		7293A1D7140A7D7B009BCA82 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		7293A1DD140A8CCE009BCA82 /* ChristmasCounterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChristmasCounterViewController.h; sourceTree = "<group>"; };
@@ -213,8 +218,6 @@
 		72FAFB4711E27D480043D496 /* CCDSnowflake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDSnowflake.h; sourceTree = "<group>"; };
 		72FAFB4811E27D480043D496 /* CCDSnowflake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDSnowflake.m; sourceTree = "<group>"; };
 		72FAFB8C11E280E40043D496 /* Jingle Bells.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Jingle Bells.mp3"; sourceTree = "<group>"; };
-		72FAFC1B11E2865F0043D496 /* UITableViewPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewPickerCell.h; sourceTree = "<group>"; };
-		72FAFC1C11E2865F0043D496 /* UITableViewPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewPickerCell.m; sourceTree = "<group>"; };
 		72FAFC1D11E2865F0043D496 /* UITableViewSliderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewSliderCell.h; sourceTree = "<group>"; };
 		72FAFC1E11E2865F0043D496 /* UITableViewSliderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewSliderCell.m; sourceTree = "<group>"; };
 		72FAFC5511E28ABF0043D496 /* ColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerViewController.h; sourceTree = "<group>"; };
@@ -436,6 +439,8 @@
 				72ACA53A193DE88F006B3B98 /* CCDCountdownHelper.m */,
 				72FAFB4711E27D480043D496 /* CCDSnowflake.h */,
 				72FAFB4811E27D480043D496 /* CCDSnowflake.m */,
+				7254316E2B5EE1990003C150 /* CCDUnlockHelper.h */,
+				7254316F2B5EE1990003C150 /* CCDUnlockHelper.m */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -482,10 +487,10 @@
 		72FAFC1A11E2863B0043D496 /* UITableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				72FAFC1B11E2865F0043D496 /* UITableViewPickerCell.h */,
-				72FAFC1C11E2865F0043D496 /* UITableViewPickerCell.m */,
 				72FAFC1D11E2865F0043D496 /* UITableViewSliderCell.h */,
 				72FAFC1E11E2865F0043D496 /* UITableViewSliderCell.m */,
+				725431712B5EF6380003C150 /* UITableViewSwitchCell.h */,
+				725431722B5EF6380003C150 /* UITableViewSwitchCell.m */,
 			);
 			path = UITableViewCell;
 			sourceTree = "<group>";
@@ -640,7 +645,7 @@
 				72FAFB3511E27B570043D496 /* CCDAudioController.m in Sources */,
 				72FAFB4911E27D480043D496 /* CCDCountdownView.m in Sources */,
 				72FAFB4A11E27D480043D496 /* CCDSnowflake.m in Sources */,
-				72FAFC1F11E2865F0043D496 /* UITableViewPickerCell.m in Sources */,
+				725431732B5EF6380003C150 /* UITableViewSwitchCell.m in Sources */,
 				7254316B2B5EA0C10003C150 /* MBProgressHUD.m in Sources */,
 				72FAFC2011E2865F0043D496 /* UITableViewSliderCell.m in Sources */,
 				72FAFC5B11E28ABF0043D496 /* ColorPickerViewController.m in Sources */,
@@ -650,6 +655,7 @@
 				7245CD0D141F876F0019A9DB /* UIScrollViewTouch.m in Sources */,
 				724711C8146A0EAF00B39A34 /* CCDPageControl.m in Sources */,
 				725354B41474683D00128B47 /* CustomImageViewController.m in Sources */,
+				725431702B5EE1990003C150 /* CCDUnlockHelper.m in Sources */,
 				72ACA53B193DE88F006B3B98 /* CCDCountdownHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

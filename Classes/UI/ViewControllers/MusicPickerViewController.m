@@ -66,20 +66,6 @@
 }
 */
 
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return YES;
-}
-
-
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
-}
-
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -262,8 +248,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     @autoreleasepool
     {
         NSString * songName = (NSString*)target;
-        NSString * musicPath = [NSString stringWithFormat: @"https://christmas-countdown-hankinsoft.s3.us-west-1.amazonaws.com/%@.mp3",
-                                [songName stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
+
+        NSString *encodedSongName = [songName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+
+        NSString *musicPath = [NSString stringWithFormat: @"https://christmas-countdown-hankinsoft.s3.us-west-1.amazonaws.com/%@.mp3", encodedSongName];
 
         NSError * error = nil;
         NSData * data = [NSData dataWithContentsOfURL: [NSURL URLWithString: musicPath]

@@ -11,6 +11,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UITableViewSwitchCell : UITableViewCell
 
+- (void) addTarget: (id) target
+            action: (SEL) action;
+
+- (void) setEnabled: (BOOL) enabled;
+- (void) setIsOn: (BOOL) isOn;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -9,4 +9,14 @@
 
 @implementation CCDUnlockHelper
 
++ (BOOL) isUnlocked
+{
+    return NO;
+} // End of isUnlocked
+
++ (void) displayUnlockPopup
+{
+    
+}
+
 @end

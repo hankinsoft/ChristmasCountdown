@@ -148,13 +148,15 @@
 
 - (void) drawRect: (CGRect) rect
 {
+    NSString * fontName = @"zapfino";
+
     CGContextRef contextRef = UIGraphicsGetCurrentContext();
 
     // Clear the contents
     CGContextClearRect(contextRef, rect);
 
-    NSString *colorString = [[NSUserDefaults standardUserDefaults] stringForKey:@"FontColor"];
-    UIColor *textColor = [self colorForString:colorString];
+    NSString *colorString = [[NSUserDefaults standardUserDefaults] stringForKey: @"FontColor"];
+    UIColor *textColor = [self colorForString: colorString];
 
     if (!textColor) {
         NSLog(@"Unknown color: %@", colorString);
@@ -164,26 +166,29 @@
     float fontSize = [ChristmasCountdownAppDelegate iPad] ? 20.0f : 15.0f;
 
     NSMutableDictionary *attributes = @{
-        NSFontAttributeName: [UIFont fontWithName: @"zapfino" size: fontSize],
+        NSFontAttributeName: [UIFont fontWithName: fontName
+                                             size: fontSize],
         NSForegroundColorAttributeName: textColor
     }.mutableCopy;
 
     NSString *countdownString = [CCDCountdownView countdownStringWithNewlines:YES];
 
     // Add a BOOL variable to enable/disable the letter border
-    BOOL enableLetterBorder = NO; // Set this to YES to enable the border
+    BOOL enableLetterBorder = YES; // Set this to YES to enable the border
 
     if (enableLetterBorder) {
         attributes = @{
-            NSFontAttributeName: [UIFont fontWithName:@"zapfino" size:fontSize],
+            NSFontAttributeName: [UIFont fontWithName: fontName
+                                                 size:fontSize],
             NSForegroundColorAttributeName: textColor,
-            NSStrokeWidthAttributeName: @-2.0, // This negative value creates a border around the lettering
-            NSStrokeColorAttributeName: [UIColor blackColor] // Border color is black
+            NSStrokeWidthAttributeName: @(-3.0), // This negative value creates a border around the lettering
+            NSStrokeColorAttributeName: [textColor colorWithAlphaComponent: 0.25] // Border color is black
         }.mutableCopy;
     }
 
     CGSize textSize = [countdownString sizeWithAttributes:attributes];
-    CGRect textRect = CGRectMake((rect.size.width - textSize.width) / 2, (rect.size.height - textSize.height) / 2, textSize.width, textSize.height);
+    CGRect textRect = CGRectMake((rect.size.width - textSize.width) / 2,
+                                 (rect.size.height - textSize.height) / 2, textSize.width, textSize.height);
 
     // Center the text within the view
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];

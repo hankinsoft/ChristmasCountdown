@@ -10,6 +10,7 @@
 #import "ChristmasCounterViewController.h"
 #import "CCDSettingsViewController.h"
 #import "UITableViewSliderCell.h"
+#import "UITableViewSwitchCell.h"
 #import "ColorPickerViewController.h"
 #import "MusicPickerViewController.h"
 #import "CustomImageViewController.h"
@@ -19,6 +20,7 @@
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
 #import <MessageUI/MessageUI.h>
+#import <UserNotifications/UserNotifications.h>
 
 @import StoreKit;
 
@@ -33,10 +35,6 @@
 #define ShareSection        3
 
 @interface CCDSettingsViewController ()<MFMailComposeViewControllerDelegate>
-{
-    // Advertisement stuff
-    BOOL                    bannerIsVisible;
-}
 
 - (int) valueForSliderField: (NSString*) field inSection: (NSString*) section;
 
@@ -46,7 +44,8 @@
 
 @implementation CCDSettingsViewController
 {
-    SLComposeViewController * mySLComposeViewController;
+    SLComposeViewController     * mySLComposeViewController;
+    BOOL                        areNotificationsDisabled;
 }
 
 static NSString *SettingsCellIdentifier = @"SettingsCell";
@@ -62,7 +61,7 @@ static NSString *SettingsCellIdentifier = @"SettingsCell";
 #pragma mark -
 #pragma mark View lifecycle
 
-- (void)viewDidLoad
+- (void) viewDidLoad
 {
     [super viewDidLoad];
 
@@ -129,40 +128,29 @@ static NSString *SettingsCellIdentifier = @"SettingsCell";
     // Notifications
 	
 	// Add the Badge cell (with switch), unselectable
-	cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:SettingsCellIdentifier];
+    UITableViewSwitchCell * switchCell = [[UITableViewSwitchCell alloc] initWithStyle: UITableViewCellStyleValue1
+                                                                      reuseIdentifier: SettingsCellIdentifier];
+    cell = switchCell;
     [cell setSelectionStyle: UITableViewCellSelectionStyleNone];
 	[cell setAccessoryType: UITableViewCellAccessoryNone];
 	[[cell textLabel] setText: @"Enable Notifications"];
-	UISwitch * badgeSwitch = [[UISwitch alloc] initWithFrame: CGRectMake(200, 10, 0, 0)];
-	badgeSwitch.on = [[NSUserDefaults standardUserDefaults] integerForKey: @"enableNotifications"];
-	badgeSwitch.tag = 1;
-	[badgeSwitch addTarget:self action:@selector(toggleNotifications:) forControlEvents:UIControlEventValueChanged];
-    badgeSwitch.translatesAutoresizingMaskIntoConstraints = NO;
-	[cell addSubview: badgeSwitch];
-    [badgeSwitch.centerYAnchor constraintEqualToAnchor: cell.centerYAnchor].active = YES;
-    [badgeSwitch.rightAnchor constraintEqualToAnchor: cell.rightAnchor
-                                            constant: -20.f].active = YES;
-    [badgeSwitch sizeToFit];
+    [switchCell setIsOn: [[NSUserDefaults standardUserDefaults] integerForKey: @"enableNotifications"]];
+    [switchCell addTarget: self
+                   action: @selector(toggleNotifications:)];
 
 	[cellArray addObject: cell];
 	
-	// Add the Badge cell
-	cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:SettingsCellIdentifier];
+    switchCell = [[UITableViewSwitchCell alloc] initWithStyle: UITableViewCellStyleValue1
+                                              reuseIdentifier: SettingsCellIdentifier];
+    cell = switchCell;
     [cell setSelectionStyle: UITableViewCellSelectionStyleNone];
 	[cell setAccessoryType: UITableViewCellAccessoryNone];
 	[[cell textLabel] setText: @"Enable Badge"];
 
-	// Add our badge switch
-	badgeSwitch = [[UISwitch alloc] initWithFrame: CGRectMake(200, 10, 0, 0)];
-	badgeSwitch.on = [[ChristmasCountdownAppDelegate instance] isBadgeEnabled];
-	badgeSwitch.tag = 1;
-	[badgeSwitch addTarget:self action:@selector(toggleBadge:) forControlEvents:UIControlEventValueChanged];
-    badgeSwitch.translatesAutoresizingMaskIntoConstraints = NO;
-	[cell addSubview: badgeSwitch];
-    [badgeSwitch.centerYAnchor constraintEqualToAnchor: cell.centerYAnchor].active = YES;
-    [badgeSwitch.rightAnchor constraintEqualToAnchor: cell.rightAnchor
-                                            constant: -20.f].active = YES;
-    [badgeSwitch sizeToFit];
+    [switchCell setIsOn: [[ChristmasCountdownAppDelegate instance] isBadgeEnabled]];
+    [switchCell addTarget: self
+                   action: @selector(toggleBadge:)];
+
 	[cellArray addObject: cell];
 	
 	[settingsDictionary setObject: cellArray forKey: SECTION_NOTIFICATIONS];
@@ -213,6 +201,43 @@ static NSString *SettingsCellIdentifier = @"SettingsCell";
 	[settingsDictionary setObject: cellArray forKey: SECTION_MORE];
 
 	[self setSettingsCells: settingsDictionary];
+    [self checkNotificationsState];
+
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(appWillEnterForeground)
+                                                 name: UIApplicationWillEnterForegroundNotification
+                                               object: nil];
+}
+
+- (void) appWillEnterForeground
+{
+    [self checkNotificationsState];
+} // End of appWillEnterForeground
+
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void) checkNotificationsState
+{
+    __block BOOL previousNotificationsState = areNotificationsDisabled;
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (settings.authorizationStatus == UNAuthorizationStatusDenied) {
+                self->areNotificationsDisabled = true;
+            } else {
+                self->areNotificationsDisabled = false;
+            }
+
+            // If the state changed, then we need to update.
+            if(self->areNotificationsDisabled != previousNotificationsState)
+            {
+                [self->tableView reloadData];
+            }
+        });
+    }];
 }
 
 - (void) toggleBadge: (UISwitch*) sender
@@ -226,8 +251,25 @@ static NSString *SettingsCellIdentifier = @"SettingsCell";
 
 - (void) toggleNotifications: (UISwitch*) sender
 {
+    if(sender.isOn)
+    {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        [center requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert)
+                              completionHandler:^(BOOL granted, NSError * _Nullable error) {
+            if (!error) {
+                if (granted) {
+                }
+                else {
+                           // Permission denied
+                           NSLog(@"Notification permission denied.");
+                       }
+            }
+        }];
+    }
+
     // Toggle our notifications, but we will not do any work until the app is closeing
-	[[NSUserDefaults standardUserDefaults] setBool: [sender isOn] forKey: @"enableNotifications"];
+	[[NSUserDefaults standardUserDefaults] setBool: [sender isOn]
+                                            forKey: @"enableNotifications"];
     [[ChristmasCountdownAppDelegate instance] setRebuildNotifications: YES];
 	
 	DLog ( @"toggleNotifications: sender = %ld, isOn %d",  (long)[sender tag], [sender isOn] );
@@ -323,7 +365,8 @@ static NSString *SettingsCellIdentifier = @"SettingsCell";
 }
 
 // Customize the number of rows in the table view.
-- (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger) tableView: (UITableView *) aTableView
+  numberOfRowsInSection: (NSInteger) section
 {
 	NSString * key = [self tableView: aTableView titleForHeaderInSection: section];
 	NSArray * cells = [self.settingsCells objectForKey: key];
@@ -332,7 +375,8 @@ static NSString *SettingsCellIdentifier = @"SettingsCell";
     return [cells count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *) tableView: (UITableView *) aTableView
+          cellForRowAtIndexPath: (NSIndexPath *) indexPath
 {
 	NSString * key = [self tableView: aTableView titleForHeaderInSection: indexPath.section];
 	NSArray * cells = [self.settingsCells objectForKey: key];
@@ -368,6 +412,17 @@ static NSString *SettingsCellIdentifier = @"SettingsCell";
 	
 	// Return our cell
 	return cell;
+}
+
+- (void) tableView: (UITableView *) tableView
+   willDisplayCell: (UITableViewCell *) cell
+ forRowAtIndexPath: (NSIndexPath *) indexPath
+{
+    if([cell isKindOfClass: UITableViewSwitchCell.class])
+    {
+        UITableViewSwitchCell * switchCell = (id) cell;
+        [switchCell setEnabled: !areNotificationsDisabled];
+    }
 }
 
 
@@ -425,11 +480,11 @@ didSelectRowAtIndexPath: (NSIndexPath *) indexPath
     UITableViewCell * cell = [aTableView cellForRowAtIndexPath: indexPath];
 	
 	// The color row
-	if ( [[[cell textLabel] text] isEqual: @"Color"] )
+	if ([[[cell textLabel] text] isEqual: @"Color"] )
 	{
 		ColorPickerViewController *colorPickerViewController = [[ColorPickerViewController alloc]initWithNibName:@"ColorPickerViewController" bundle: [NSBundle mainBundle]];
 
-        colorPickerViewController.title = @"CCDSnowflake Color";
+        colorPickerViewController.title = @"Snowflake Color";
         colorPickerViewController.property = @"SnowflakeColor";
 
         colorPickerViewController.generalArray = 	[[NSArray alloc] initWithObjects: @"White", @"Blue", @"Pink", @"Yellow", @"Green", @"Purple", @"Rainbow", nil];
@@ -439,7 +494,7 @@ didSelectRowAtIndexPath: (NSIndexPath *) indexPath
                                                      @"St. Patrick's Day",
                                                      nil];
 
-        [[self navigationController] pushViewController:colorPickerViewController animated:YES];
+        [[self navigationController] pushViewController: colorPickerViewController animated:YES];
 	} // End of color row
     // Font color
 	else if ( [[[cell textLabel] text] isEqual: @"Font Color"] )
@@ -509,13 +564,13 @@ didSelectRowAtIndexPath: (NSIndexPath *) indexPath
 {
 	if ( NotificationSection == section )
 	{
-		return @"If you are using iOS 5 or above, Christmas Countdown "
-            @"must be enabled in the Notification Center.";
+        if(areNotificationsDisabled)
+        {
+            return @"Notifications for Christmas Countdown have been disabled via iOS Settings. If you want notifications, they must be enabled in the Notification Center.";
+        }
 	}
-	else
-	{
-		return @"";
-	}
+
+    return @"";
 }
 
 /// <Summary>

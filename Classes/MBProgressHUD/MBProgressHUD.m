@@ -41,6 +41,9 @@ static const CGFloat MBDefaultDetailsLabelFontSize = 12.f;
 
 @implementation MBProgressHUD
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 #pragma mark - Class methods
 
 + (instancetype)showHUDAddedTo:(UIView *)view animated:(BOOL)animated {
@@ -1190,5 +1193,7 @@ static const CGFloat MBDefaultDetailsLabelFontSize = 12.f;
     UIColor *baseColor = [self titleColorForState:UIControlStateSelected];
     self.backgroundColor = highlighted ? [baseColor colorWithAlphaComponent:0.1f] : [UIColor clearColor];
 }
+
+#pragma clang diagnostic pop
 
 @end
